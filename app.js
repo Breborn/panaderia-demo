@@ -170,25 +170,14 @@ const PRODUCTS = [
   // 4. Bollería Hojaldrada & Dulces Ceres
   {
     id: 'croissant-clasico',
-    name: 'Croissant de Masa Madre 100% Mantequilla (Foto Real Ceres)',
+    name: 'Croissant Francés 100% Mantequilla',
     category: 'bolleria',
     categoryName: 'Bollería Artesanal Quilpué',
-    tag: '100% Mantequilla Pura • Foto Real',
+    tag: '100% Mantequilla Pura',
     weight: 'Unidad 120g',
     price: 2400,
-    desc: 'Hojaldre artesanal perfecto de elaboración propia en Quilpué. Capas doradas, alveolado abierto y 100% mantequilla pura con masa madre.',
-    image: 'assets/images/croissants_ceres_real.jpg'
-  },
-  {
-    id: 'croissant-pack-ceres',
-    name: 'Pack 4x Croissants Artesanales Ceres',
-    category: 'bolleria',
-    categoryName: 'Bollería Artesanal Quilpué',
-    tag: 'Para la Once Familiar',
-    weight: 'Pack 4 un. (480g)',
-    price: 8500,
-    desc: 'Cuatro croissants de masa madre dorados y crocantes por fuera, alveolados y sedosos por dentro. Perfectos para rellenar dulces o salados.',
-    image: 'assets/images/croissants_ceres_real.jpg'
+    desc: 'Hojaldre francés tradicional de masa madre con 27 capas doradas y crocantes, con interior suave y sedoso de elaboración propia.',
+    image: 'assets/images/croissants_bolleria.jpg'
   },
   {
     id: 'pain-au-chocolat',
@@ -224,39 +213,28 @@ const PRODUCTS = [
     image: 'assets/images/cinnamon_babka.jpg'
   },
 
-  // 5. Pan de Pascua Ceres & Especiales de Temporada
+  // 5. Pan de Pascua Ceres & Especiales de Temporada (Fotografías de Estudio Distintas)
   {
     id: 'pan-de-pascua-chocolate-ceres',
     name: 'Pan de Pascua de Masa Madre • Chips de Chocolate',
     category: 'pascua',
     categoryName: 'Especiales Ceres',
-    tag: 'Estrella de Temporada • Foto Real',
+    tag: 'Edición Especial Chocolate',
     weight: 'Unidad 750g',
     price: 8900,
-    desc: 'Elaborado con masa madre viva de fermentación lenta 36h, abundante chocolate bitter al 60% en chips y textura ultra suave y húmeda con aroma a mantequilla y miel.',
-    image: 'assets/images/pan_de_pascua_ceres.jpg'
+    desc: 'Elaborado con masa madre viva de fermentación lenta 36h, abundante chocolate bitter al 60% en chips y textura ultra suave y húmeda con aroma a miel y mantequilla.',
+    image: 'assets/images/pan_pascua_chocolate_artesanal.jpg'
   },
   {
     id: 'pan-de-pascua-tradicional-ceres',
-    name: 'Pan de Pascua Artesanal • Nueces & Especias',
+    name: 'Pan de Pascua Artesanal • Nueces & Almendras',
     category: 'pascua',
     categoryName: 'Especiales Ceres',
-    tag: 'Clásico Navideño Artesanal',
+    tag: 'Clásico Navideño Tradicional',
     weight: 'Unidad 750g',
     price: 8900,
-    desc: 'Receta tradicional con masa madre: nueces chilenas seleccionadas, almendras tostadas, canela de Ceilán, clavo de olor y toque de licor añejo.',
-    image: 'assets/images/pan_de_pascua_ceres.jpg'
-  },
-  {
-    id: 'pan-de-pascua-pack-duo',
-    name: 'Pack Dúo Pan de Pascua Ceres (Chocolate + Tradicional)',
-    category: 'pascua',
-    categoryName: 'Especiales Ceres',
-    tag: 'Ahorro Pack • Ideal Regalo',
-    weight: '2 Unidades (1.5kg)',
-    price: 16500,
-    desc: 'Lleva las dos variedades insignias de Pan Ceres: uno con abundantes chips de chocolate y otro tradicional con frutos secos y especias navideñas en bolsa kraft de regalo.',
-    image: 'assets/images/pan_de_pascua_ceres.jpg'
+    desc: 'Receta tradicional con masa madre: coronado con nueces chilenas tostadas, almendras enteras, canela de Ceilán, clavo de olor y toque de licor añejo.',
+    image: 'assets/images/pan_pascua_tradicional_artesanal.jpg'
   }
 ];
 
