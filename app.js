@@ -1,43 +1,101 @@
 /**
- * CERES MASA MADRE • PANADERÍA ARTESANAL & CAFÉ
- * Interactive Application Engine: Live Cart, Filters, Mode Selectors & WhatsApp Checkout
+ * CERES MASA MADRE • STREETBAKERS & BAKERY TO GO
+ * Interactive Application Engine: Video Hero, StreetBakers Carousel, Digital Menu & WhatsApp Checkout
  * Developed by Breborn.cl
  */
 
-// Teléfono oficial para pedidos (+56 9 5164 4492 o personalizable)
+// Teléfono oficial para pedidos WhatsApp (+56 9 5164 4492)
 const WHATSAPP_PHONE = '56951644492';
 const DELIVERY_FEE = 2500;
 
-// Estado Global de la Aplicación
+// Estado Global
 const AppState = {
   cart: [],
   selectedMode: 'retiro-lautaro', // 'retiro-lautaro' | 'retiro-bello' | 'delivery'
-  selectedFilter: 'all'
+  selectedFilter: 'all',
+  currentSlide: 0
 };
 
-// Catálogo de Productos Artesanales
+// Catálogo Completo de Productos (StreetBakers + Bakery To Go + Ceres)
 const PRODUCTS = [
-  // 1. Hogazas de Masa Madre
+  // 1. Buns & Potato Rolls (Línea StreetBakers)
+  {
+    id: 'buns-not-martins',
+    name: 'Not Martins • Potato Rolls (Pack 4x)',
+    category: 'buns',
+    categoryName: 'Línea Hamburgueserías',
+    tag: 'Hit Smash Burgers',
+    weight: 'Pack 4 un. (340g)',
+    price: 4500,
+    desc: 'El preferido de las mejores smash burgers. Creado para sostener los jugos de la carne sin perder esponjosidad. Brillo mantequilla y semilla de sésamo.',
+    image: 'assets/images/buns_streetbakers.jpg'
+  },
+  {
+    id: 'buns-classic-brioche',
+    name: 'Classic Brioche Burger Buns (Pack 4x)',
+    category: 'buns',
+    categoryName: 'Línea Hamburgueserías',
+    tag: '100% Mantequilla',
+    weight: 'Pack 4 un. (360g)',
+    price: 4200,
+    desc: 'Pan brioche francés tradicional con mantequilla pura de vaca y huevo de campo. Dorado acaramelado con textura nube resistente a salsas intensas.',
+    image: 'assets/images/buns_streetbakers.jpg'
+  },
+  {
+    id: 'buns-dark-brioche',
+    name: 'Dark Brioche Black Buns (Pack 4x)',
+    category: 'buns',
+    categoryName: 'Línea Hamburgueserías',
+    tag: 'Edición Negra Gourmet',
+    weight: 'Pack 4 un. (360g)',
+    price: 4800,
+    desc: 'Pan brioche negro natural teñido con carbón activado vegetal y cacao amargo. Visualmente impresionante y con sabor sutilmente tostado.',
+    image: 'assets/images/buns_streetbakers.jpg'
+  },
+  {
+    id: 'buns-vegan-sourdough',
+    name: 'Vegan Potato Buns de Masa Madre (Pack 4x)',
+    category: 'buns',
+    categoryName: 'Línea Hamburgueserías',
+    tag: '100% Plant-Based',
+    weight: 'Pack 4 un. (340g)',
+    price: 4400,
+    desc: 'Versión vegana con aceite de oliva extra virgen y puré de papa natural fermentado con masa madre. Sin lácteos ni huevos, ultra suave.',
+    image: 'assets/images/buns_streetbakers.jpg'
+  },
+
+  // 2. Hogazas de Masa Madre (Bakery To Go & Ceres)
   {
     id: 'hogaza-campesina',
-    name: 'Hogaza Tradicional Campesina',
+    name: 'Hogaza Tradicional Campesina (1kg)',
     category: 'hogazas',
     categoryName: 'Masa Madre Viva',
     tag: 'Favorito • 36h Fermentación',
     weight: 'Hogaza 1kg',
     price: 5500,
-    desc: '100% harina de trigo no blanqueada de molino a piedra, agua pura, sal de Cahuil y masa madre viva. Corteza caramelizada crujiente, miga abierta, húmeda y de acidez suave y láctica.',
+    desc: '100% harina de trigo no blanqueada de molino a piedra, agua pura, sal de Cahuil y cultivo vivo. Miga abierta, húmeda y acidez láctica suave.',
     image: 'assets/images/hero_hogaza.jpg'
   },
   {
+    id: 'hogaza-esculpida-botanica',
+    name: 'Hogaza Esculpida • Arte Botánico',
+    category: 'hogazas',
+    categoryName: 'Edición Especial',
+    tag: 'Greña de Autor',
+    weight: 'Hogaza 950g',
+    price: 6400,
+    desc: 'Grabada a mano alzada con navajas UFO antes de entrar al horno de piedra. Espigas y hojas doradas crujientes sobre miga esponjosa.',
+    image: 'assets/images/sourdough_scoring_pinterest.jpg'
+  },
+  {
     id: 'hogaza-multisemillas',
-    name: 'Hogaza Multisemillas & Centeno',
+    name: 'Hogaza Multisemillas & Centeno (1kg)',
     category: 'hogazas',
     categoryName: 'Masa Madre Viva',
     tag: 'Nutritivo • 48h Fermentación',
     weight: 'Hogaza 1kg',
     price: 6200,
-    desc: 'Masa madre de centeno integral con mix tostado de semillas de zapallo, girasol, sésamo negro y linaza dorada. Textura densa, aromática y altamente nutritiva.',
+    desc: 'Masa madre de centeno integral con mix tostado de semillas de zapallo, girasol, sésamo negro y linaza dorada. Textura densa y aromática.',
     image: 'assets/images/hogaza_semillas.jpg'
   },
   {
@@ -45,10 +103,10 @@ const PRODUCTS = [
     name: 'Hogaza Aceitunas de Huasco & Romero',
     category: 'hogazas',
     categoryName: 'Masa Madre Viva',
-    tag: 'Especialidad del Maestro',
+    tag: 'Especialidad Salada',
     weight: 'Hogaza 900g',
     price: 6400,
-    desc: 'Masa hidratada al 80% con aceitunas sevillanas y kalamata marinadas en aceite de oliva virgen extra y romero fresco recién cosechado.',
+    desc: 'Hidratación al 80% con aceitunas sevillanas y kalamata marinadas en aceite de oliva virgen extra y romero recién cortado.',
     image: 'assets/images/focaccia_baguettes.jpg'
   },
   {
@@ -56,60 +114,25 @@ const PRODUCTS = [
     name: 'Hogaza Nuez & Chocolate Bitter 70%',
     category: 'hogazas',
     categoryName: 'Masa Madre Viva',
-    tag: 'Gourmet • Edición Especial',
+    tag: 'Gourmet • Para la Once',
     weight: 'Hogaza 850g',
     price: 6800,
-    desc: 'Insuperable para el desayuno o la once: masa madre rústica con nueces chilenas tostadas y trozos de chocolate amargo belga 70%.',
+    desc: 'Insuperable para el desayuno o la merienda: masa madre rústica con nueces chilenas tostadas y trozos de chocolate amargo belga 70%.',
     image: 'assets/images/hero_hogaza.jpg'
   },
 
-  // 2. Bollería Hojaldrada & Dulces
+  // 3. Focaccias & Baguettes
   {
-    id: 'croissant-clasico',
-    name: 'Croissant Francés 100% Mantequilla',
-    category: 'bolleria',
-    categoryName: 'Hojaldre de Masa Madre',
-    tag: '100% Mantequilla Pura',
-    weight: 'Unidad 120g',
-    price: 2400,
-    desc: 'Hojaldre francés tradicional elaborado con masa madre y mantequilla pura de vaca. 27 capas doradas y crocantes, con interior alveolado y sedoso.',
-    image: 'assets/images/croissants_bolleria.jpg'
+    id: 'baguette-tradicional',
+    name: 'Baguette Rústica Tradicional',
+    category: 'focaccias',
+    categoryName: 'Panadería Francesa',
+    tag: 'Clásico París • 24h',
+    weight: 'Pieza 300g',
+    price: 2200,
+    desc: 'Elaborada bajo el método poolish con 24 horas de reposo. Piel fina que cruje al partirla y miga crema con grandes ojos irregulares.',
+    image: 'assets/images/baguettes_basket_pinterest.jpg'
   },
-  {
-    id: 'pain-au-chocolat',
-    name: 'Pain au Chocolat Callebaut',
-    category: 'bolleria',
-    categoryName: 'Hojaldre de Masa Madre',
-    tag: 'Chocolate Belga',
-    weight: 'Unidad 130g',
-    price: 2800,
-    desc: 'Croissant hojaldrado relleno con dos barras de chocolate belga semi-amargo Callebaut 54%. Dorado a la perfección cada mañana.',
-    image: 'assets/images/croissants_bolleria.jpg'
-  },
-  {
-    id: 'cinnamon-roll-brioche',
-    name: 'Cinnamon Roll Brioche de Masa Madre',
-    category: 'bolleria',
-    categoryName: 'Bollería Artesanal',
-    tag: 'Recién Horneado',
-    weight: 'Unidad 150g',
-    price: 2900,
-    desc: 'Masa brioche enriquecida con masa madre viva, canela de Ceilán, azúcar morena y glaseado aterciopelado de queso crema y vainilla natural.',
-    image: 'assets/images/cinnamon_babka.jpg'
-  },
-  {
-    id: 'babka-chocolate-avellanas',
-    name: 'Babka de Chocolate & Avellanas',
-    category: 'bolleria',
-    categoryName: 'Bollería Artesanal',
-    tag: 'Para Compartir',
-    weight: 'Pieza 450g',
-    price: 6900,
-    desc: 'Pan dulce trenzado artesanal con masa brioche de masa madre, generosos remolinos de ganache de chocolate amargo y crocantes avellanas tostadas.',
-    image: 'assets/images/cinnamon_babka.jpg'
-  },
-
-  // 3. Focaccias & Rústicos
   {
     id: 'focaccia-pomodoro',
     name: 'Focaccia Pomodoro, Albahaca & Flor de Sal',
@@ -118,18 +141,7 @@ const PRODUCTS = [
     tag: 'Crocante & Aireada',
     weight: 'Porción 350g',
     price: 4200,
-    desc: 'Alta hidratación al 85%, aceite de oliva virgen extra de primer prensado en frío, tomates cherry confitados, albahaca fresca y escamas de flor de sal.',
-    image: 'assets/images/focaccia_baguettes.jpg'
-  },
-  {
-    id: 'baguette-tradicional',
-    name: 'Baguette Rústica Tradicional',
-    category: 'focaccias',
-    categoryName: 'Panadería Francesa',
-    tag: 'Clásico París',
-    weight: 'Pieza 300g',
-    price: 2200,
-    desc: 'Elaborada bajo el método tradicional con fermentación de 24 horas y masa madre. Corteza fina y quebradiza, con grandes alveolos y aroma a cereal tostado.',
+    desc: 'Alta hidratación al 85%, aceite de oliva virgen extra de primer prensado en frío, tomates cherry confitados, albahaca y flor de sal.',
     image: 'assets/images/focaccia_baguettes.jpg'
   },
   {
@@ -140,7 +152,7 @@ const PRODUCTS = [
     tag: 'Especialidad Salada',
     weight: 'Porción 350g',
     price: 4600,
-    desc: 'Masa madre con oliva EVOO, cebollas moradas lentamente caramelizadas al tomillo fresco y medallones de queso de cabra artesanal de la zona central.',
+    desc: 'Masa madre con oliva EVOO, cebollas moradas lentamente confitadas al tomillo fresco y medallones de queso de cabra artesanal.',
     image: 'assets/images/focaccia_baguettes.jpg'
   },
   {
@@ -151,11 +163,57 @@ const PRODUCTS = [
     tag: 'Desayuno Perfecto',
     weight: 'Molde 700g',
     price: 5200,
-    desc: 'Miga aterciopelada y esponjosa, enriquecida con mantequilla de campo y huevos de gallina libre. Ideal para tostadas gourmet, sándwiches o french toast.',
+    desc: 'Miga aterciopelada y esponjosa, enriquecida con mantequilla de campo y huevos de gallina libre. Ideal para tostadas gourmet o french toast.',
     image: 'assets/images/hero_hogaza.jpg'
   },
 
-  // 4. Despensa Artesanal & Café
+  // 4. Bollería Hojaldrada & Dulces
+  {
+    id: 'croissant-clasico',
+    name: 'Croissant Francés 100% Mantequilla',
+    category: 'bolleria',
+    categoryName: 'Hojaldre de Masa Madre',
+    tag: '100% Mantequilla Pura',
+    weight: 'Unidad 120g',
+    price: 2400,
+    desc: 'Hojaldre francés tradicional elaborado con masa madre y mantequilla pura de vaca. 27 capas doradas y crocantes, con interior sedoso.',
+    image: 'assets/images/croissants_bolleria.jpg'
+  },
+  {
+    id: 'pain-au-chocolat',
+    name: 'Pain au Chocolat Callebaut',
+    category: 'bolleria',
+    categoryName: 'Hojaldre de Masa Madre',
+    tag: 'Chocolate Belga 54%',
+    weight: 'Unidad 130g',
+    price: 2800,
+    desc: 'Croissant hojaldrado relleno con dos barras de chocolate belga semi-amargo Callebaut 54%. Horneado a punto cada mañana.',
+    image: 'assets/images/croissants_bolleria.jpg'
+  },
+  {
+    id: 'cinnamon-roll-brioche',
+    name: 'Cinnamon Roll Brioche de Masa Madre',
+    category: 'bolleria',
+    categoryName: 'Bollería Artesanal',
+    tag: 'Recién Horneado',
+    weight: 'Unidad 150g',
+    price: 2900,
+    desc: 'Masa brioche enriquecida con masa madre viva, canela de Ceilán, azúcar morena y glaseado de queso crema y vainilla natural.',
+    image: 'assets/images/cinnamon_babka.jpg'
+  },
+  {
+    id: 'babka-chocolate-avellanas',
+    name: 'Babka de Chocolate & Avellanas Tostadas',
+    category: 'bolleria',
+    categoryName: 'Bollería Artesanal',
+    tag: 'Para Compartir',
+    weight: 'Pieza 450g',
+    price: 6900,
+    desc: 'Pan dulce trenzado artesanal con masa brioche de masa madre, generosos remolinos de ganache de chocolate amargo y avellanas crocantes.',
+    image: 'assets/images/cinnamon_babka.jpg'
+  },
+
+  // 5. Despensa Artesanal & Harinas
   {
     id: 'harina-fuerza-molino',
     name: 'Harina de Fuerza Molino a Piedra Orgánica',
@@ -164,7 +222,7 @@ const PRODUCTS = [
     tag: 'Molino a Piedra',
     weight: 'Paquete 1kg',
     price: 3500,
-    desc: 'Harina de trigo integral agroecológica, molida lentamente a la piedra conservando el germen y salvado natural. Perfecta para alimentar tu masa madre.',
+    desc: 'Harina de trigo integral agroecológica, molida lentamente a la piedra conservando el germen y salvado natural. Ideal para tu masa madre.',
     image: 'assets/images/despensa_artesanal.jpg'
   },
   {
@@ -175,7 +233,7 @@ const PRODUCTS = [
     tag: 'Fruta Chilena',
     weight: 'Frasco 320g',
     price: 4800,
-    desc: 'Cocida lentamente en paila de cobre con frambuesas, moras y arándanos frescos con bajo contenido de azúcar añadida. El maridaje ideal para hogazas.',
+    desc: 'Cocida en paila de cobre con frambuesas, moras y arándanos frescos con bajo contenido de azúcar añadida. El maridaje ideal para hogazas.',
     image: 'assets/images/despensa_artesanal.jpg'
   },
   {
@@ -186,7 +244,7 @@ const PRODUCTS = [
     tag: '100% Pura de Bosque',
     weight: 'Frasco 500g',
     price: 5500,
-    desc: 'Miel pura cruda sin pasteurizar cosechada en bosque nativo chileno. Notas florales ámbar ideales para acompañar quesos y panes rústicos.',
+    desc: 'Miel pura cruda sin pasteurizar cosechada en bosque nativo chileno. Notas florales ámbar ideales para quesos y panes rústicos.',
     image: 'assets/images/despensa_artesanal.jpg'
   },
   {
@@ -197,25 +255,123 @@ const PRODUCTS = [
     tag: 'Tueste Medio Fresco',
     weight: 'Bolsa 250g',
     price: 8900,
-    desc: 'Origen Colombia Huila & Etiopía Yirgacheffe, tostado artesanal semanal con notas a chocolate amargo, caramelo tostado y sutil acidez de frutos rojos.',
+    desc: 'Origen Colombia Huila & Etiopía Yirgacheffe, tostado semanalmente con notas a chocolate amargo, caramelo y sutil acidez de frutos rojos.',
     image: 'assets/images/bg_horarios_panaderia.jpg'
   }
 ];
 
-// Inicialización cuando el DOM está listo
+// Inicialización de la Aplicación
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   initCategoryFilters();
+  initStreetBakersCarousel();
   initCartDrawer();
   initModePills();
-  initFAQAccordion();
   initMobileMenu();
   loadCartFromStorage();
   updateCartUI();
 });
 
 /**
- * 1. Render de Productos en la Cuadrícula
+ * 1. StreetBakers High-Definition Carousel Logic
+ */
+function initStreetBakersCarousel() {
+  const track = document.getElementById('carouselTrack');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.getElementById('carouselPrevBtn');
+  const nextBtn = document.getElementById('carouselNextBtn');
+  const indicatorsContainer = document.getElementById('carouselIndicators');
+
+  if (!track || slides.length === 0) return;
+
+  const totalSlides = slides.length;
+
+  // Render dots
+  if (indicatorsContainer) {
+    indicatorsContainer.innerHTML = Array.from({ length: totalSlides }).map((_, i) => 
+      `<span class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`
+    ).join('');
+
+    const dots = indicatorsContainer.querySelectorAll('.carousel-dot');
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.getAttribute('data-index'), 10);
+        goToSlide(idx);
+      });
+    });
+  }
+
+  function goToSlide(index) {
+    if (index < 0) {
+      AppState.currentSlide = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      AppState.currentSlide = 0;
+    } else {
+      AppState.currentSlide = index;
+    }
+
+    track.style.transform = `translateX(-${AppState.currentSlide * 100}%)`;
+
+    // Update active class
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === AppState.currentSlide);
+    });
+
+    // Update dots
+    if (indicatorsContainer) {
+      const dots = indicatorsContainer.querySelectorAll('.carousel-dot');
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === AppState.currentSlide);
+      });
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => goToSlide(AppState.currentSlide - 1));
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => goToSlide(AppState.currentSlide + 1));
+  }
+
+  // Auto-play every 6 seconds
+  let autoTimer = setInterval(() => {
+    goToSlide(AppState.currentSlide + 1);
+  }, 6000);
+
+  // Pause on hover
+  const carouselMaster = document.getElementById('streetCarousel');
+  if (carouselMaster) {
+    carouselMaster.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    carouselMaster.addEventListener('mouseleave', () => {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        goToSlide(AppState.currentSlide + 1);
+      }, 6000);
+    });
+  }
+
+  // Touch Swipe for Mobile
+  let startX = 0;
+  let endX = 0;
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        goToSlide(AppState.currentSlide + 1); // Swipe left -> next
+      } else {
+        goToSlide(AppState.currentSlide - 1); // Swipe right -> prev
+      }
+    }
+  }, { passive: true });
+}
+
+/**
+ * 2. Render de Productos de la Carta Digital (Bakery To Go Style)
  */
 function renderProducts() {
   const grid = document.getElementById('productsGrid');
@@ -254,7 +410,7 @@ function renderProducts() {
 }
 
 /**
- * 2. Filtros de Categorías
+ * 3. Filtros de Categorías
  */
 function initCategoryFilters() {
   const buttons = document.querySelectorAll('.cat-tab-btn');
@@ -274,7 +430,7 @@ function initCategoryFilters() {
 }
 
 /**
- * 3. Gestión del Carrito (Agregar, Restar, Eliminar)
+ * 4. Gestión del Carrito (Agregar, Restar, Eliminar)
  */
 function addToCart(productId) {
   const product = PRODUCTS.find(p => p.id === productId);
@@ -323,7 +479,7 @@ function removeFromCart(productId) {
 }
 
 /**
- * 4. Actualización Visual del Carrito & Drawer
+ * 5. Actualización Visual del Carrito & Drawer
  */
 function updateCartUI() {
   const totalCount = AppState.cart.reduce((sum, item) => sum + item.qty, 0);
@@ -370,7 +526,6 @@ function updateCartUI() {
     addressGroup.style.display = isDelivery ? 'flex' : 'none';
   }
 
-  // Render Items in Drawer Body
   renderDrawerItems();
 }
 
@@ -384,9 +539,9 @@ function renderDrawerItems() {
       <div class="empty-cart-view">
         <div class="empty-cart-icon">🥖</div>
         <h4>Tu canasta está vacía</h4>
-        <p>Aún no has agregado panes de masa madre ni delicias horneadas.</p>
-        <button class="btn-start-shopping" onclick="closeCartDrawer(); window.location.hash = '#catalogo';">
-          Explorar la Vitrina
+        <p>Aún no has agregado panes de masa madre, buns ni bollería.</p>
+        <button class="btn-start-shopping" onclick="closeCartDrawer(); window.location.hash = '#pedir';">
+          Explorar la Carta
         </button>
       </div>
     `;
@@ -419,7 +574,7 @@ function renderDrawerItems() {
 }
 
 /**
- * 5. Drawer Controls (Abrir, Cerrar)
+ * 6. Drawer Controls (Abrir, Cerrar)
  */
 function initCartDrawer() {
   const openBtn = document.getElementById('openCartBtn');
@@ -464,7 +619,7 @@ function closeCartDrawer() {
 }
 
 /**
- * 6. Selección de Modo de Retiro / Despacho
+ * 7. Selección de Modo de Retiro / Despacho
  */
 function initModePills() {
   const pills = document.querySelectorAll('.mode-pill');
@@ -500,11 +655,11 @@ function selectPickupBranch(branchName) {
 }
 
 /**
- * 7. Envío del Pedido a WhatsApp
+ * 8. Envío del Pedido a WhatsApp
  */
 function sendWhatsAppOrder() {
   if (AppState.cart.length === 0) {
-    alert('Tu canasta está vacía. Por favor agrega productos antes de enviar el pedido.');
+    alert('Tu canasta está vacía. Por favor agrega panes antes de enviar tu pedido.');
     return;
   }
 
@@ -519,7 +674,7 @@ function sendWhatsAppOrder() {
   const notes = notesInput ? notesInput.value.trim() : '';
 
   if (!name) {
-    alert('Por favor ingresa tu nombre para identificar el pedido.');
+    alert('Por favor ingresa tu nombre completo para identificar el pedido.');
     if (nameInput) nameInput.focus();
     return;
   }
@@ -530,15 +685,14 @@ function sendWhatsAppOrder() {
     return;
   }
 
-  // Definir texto de la modalidad
   let modeText = '';
   let branchNote = '';
   if (AppState.selectedMode === 'retiro-lautaro') {
     modeText = 'Retiro en Local Lautaro (09:00 a 20:00 hrs)';
-    branchNote = '📍 Sucursal Lautaro • Centro';
+    branchNote = '📍 Sucursal Lautaro • Sector Centro';
   } else if (AppState.selectedMode === 'retiro-bello') {
     modeText = 'Retiro en Local Andrés Bello (09:00 a 19:30 hrs)';
-    branchNote = '📍 Sucursal Av. Andrés Bello';
+    branchNote = '📍 Sucursal Av. Andrés Bello • Sector Poniente';
   } else {
     modeText = `Delivery a Domicilio ($${formatNumber(DELIVERY_FEE)})`;
     branchNote = `🏠 Dirección: ${address}`;
@@ -548,21 +702,19 @@ function sendWhatsAppOrder() {
   const deliveryFee = AppState.selectedMode === 'delivery' ? DELIVERY_FEE : 0;
   const grandTotal = subtotal + deliveryFee;
 
-  // Armar lista de productos
   const itemsText = AppState.cart.map(item => 
     `• ${item.qty}x ${item.name} (${item.weight}) — $${formatNumber(item.price * item.qty)}`
   ).join('\n');
 
-  // Construcción del mensaje para WhatsApp
   const messageLines = [
-    '🥖 *PEDIDO EN LÍNEA • CERES MASA MADRE*',
+    '🥖 *PEDIDO ONLINE • CERES MASA MADRE & STREETBAKERS*',
     '----------------------------------------',
     `👤 *Cliente:* ${name}`,
     `📦 *Modalidad:* ${modeText}`,
     branchNote,
     `🕒 *Horario:* ${dateStr}`,
     '----------------------------------------',
-    '🧺 *DETALLE DE LA CANASTA:*',
+    '🧺 *DETALLE DEL PEDIDO:*',
     itemsText,
     '----------------------------------------',
     `💵 *Subtotal:* $${formatNumber(subtotal)}`,
@@ -577,32 +729,7 @@ function sendWhatsAppOrder() {
   const encodedMessage = encodeURIComponent(fullMessage);
   const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;
 
-  // Abrir WhatsApp en nueva pestaña
   window.open(whatsappUrl, '_blank', 'noopener');
-}
-
-/**
- * 8. FAQ Accordion
- */
-function initFAQAccordion() {
-  const items = document.querySelectorAll('.faq-item');
-  items.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    if (question) {
-      question.addEventListener('click', () => {
-        const isOpen = item.classList.contains('active');
-        items.forEach(i => {
-          i.classList.remove('active');
-          const q = i.querySelector('.faq-question');
-          if (q) q.setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('active');
-          question.setAttribute('aria-expanded', 'true');
-        }
-      });
-    }
-  });
 }
 
 /**
