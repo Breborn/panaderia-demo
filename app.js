@@ -1,6 +1,6 @@
 /**
- * CERES MASA MADRE • STREETBAKERS & BAKERY TO GO
- * Interactive Application Engine: Video Hero, StreetBakers Carousel, Digital Menu & WhatsApp Checkout
+ * PAN CERES • PANADERÍA Y BOLLERÍA DE MASA MADRE
+ * Interactive Application Engine: Video Hero, Lead Hero Slider, Digital Menu & WhatsApp Checkout
  * Developed by Breborn.cl
  */
 
@@ -16,9 +16,9 @@ const AppState = {
   currentSlide: 0
 };
 
-// Catálogo Completo de Productos (StreetBakers + Bakery To Go + Ceres)
+// Catálogo Completo de Productos (Pan Ceres)
 const PRODUCTS = [
-  // 1. Buns & Potato Rolls (Línea StreetBakers)
+  // 1. Buns & Potato Rolls (Línea Hamburgueserías)
   {
     id: 'buns-not-martins',
     name: 'Not Martins • Potato Rolls (Pack 4x)',
@@ -28,7 +28,7 @@ const PRODUCTS = [
     weight: 'Pack 4 un. (340g)',
     price: 4500,
     desc: 'El preferido de las mejores smash burgers. Creado para sostener los jugos de la carne sin perder esponjosidad. Brillo mantequilla y semilla de sésamo.',
-    image: 'assets/images/buns_streetbakers.jpg'
+    image: 'assets/images/buns_hamburguesa.jpg'
   },
   {
     id: 'buns-classic-brioche',
@@ -39,7 +39,7 @@ const PRODUCTS = [
     weight: 'Pack 4 un. (360g)',
     price: 4200,
     desc: 'Pan brioche francés tradicional con mantequilla pura de vaca y huevo de campo. Dorado acaramelado con textura nube resistente a salsas intensas.',
-    image: 'assets/images/buns_streetbakers.jpg'
+    image: 'assets/images/buns_hamburguesa.jpg'
   },
   {
     id: 'buns-dark-brioche',
@@ -50,7 +50,7 @@ const PRODUCTS = [
     weight: 'Pack 4 un. (360g)',
     price: 4800,
     desc: 'Pan brioche negro natural teñido con carbón activado vegetal y cacao amargo. Visualmente impresionante y con sabor sutilmente tostado.',
-    image: 'assets/images/buns_streetbakers.jpg'
+    image: 'assets/images/buns_hamburguesa.jpg'
   },
   {
     id: 'buns-vegan-sourdough',
@@ -61,10 +61,10 @@ const PRODUCTS = [
     weight: 'Pack 4 un. (340g)',
     price: 4400,
     desc: 'Versión vegana con aceite de oliva extra virgen y puré de papa natural fermentado con masa madre. Sin lácteos ni huevos, ultra suave.',
-    image: 'assets/images/buns_streetbakers.jpg'
+    image: 'assets/images/buns_hamburguesa.jpg'
   },
 
-  // 2. Hogazas de Masa Madre (Bakery To Go & Ceres)
+  // 2. Hogazas de Masa Madre (Pan Ceres)
   {
     id: 'hogaza-campesina',
     name: 'Hogaza Tradicional Campesina (1kg)',
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. StreetBakers Lead Hero Background Slider (Ken Burns + Smooth Crossfade)
+ * 1. Lead Hero Background Slider (Ken Burns + Smooth Crossfade)
  * Cycles high-definition bakery & burger bun photography one after another.
  */
 function initLeadHeroSlider() {
@@ -388,7 +388,7 @@ function initLeadHeroSlider() {
 }
 
 /**
- * 2. Render de Productos de la Carta Digital (Bakery To Go Style)
+ * 2. Render de Productos de la Carta Digital 
  */
 function renderProducts() {
   const grid = document.getElementById('productsGrid');

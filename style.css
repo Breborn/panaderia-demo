@@ -1,11 +1,11 @@
 /* ==========================================================================
-   STREETBAKERS • PAN PARA EXPERTOS & BAKERY TO GO
+   PAN CERES • PANADERÍA ARTESANAL
    Design System & Architecture
    Developed by Breborn.cl
    ========================================================================== */
 
 :root {
-  /* StreetBakers Signature Palette */
+  /* Theme Palette */
   --sb-cream-bg: #F7F1E6;
   --sb-cream-surface: #FBF7F0;
   --sb-red: #E83828;
@@ -169,7 +169,7 @@ button {
 }
 
 /* ==========================================================================
-   StreetBakers Header (Cream Background & Curved Red Banner Logo)
+   Main Header (Cream Background & Curved Red Banner Logo)
    ========================================================================== */
 .sb-header {
   position: sticky;
@@ -221,7 +221,7 @@ button {
   transform: translateY(-1px);
 }
 
-/* Red Banner Ribbon Logo with Circular Ceres Badge (StreetBakers style) */
+/* Red Banner Ribbon Logo with Circular Ceres Badge  */
 .sb-brand-ribbon-wrap {
   display: flex;
   align-items: center;
@@ -470,7 +470,7 @@ button {
   pointer-events: none;
 }
 
-/* Centered Lead Hero Content (Exact StreetBakers reference layout) */
+/* Centered Lead Hero Content  */
 .lead-hero-content {
   position: relative;
   z-index: 3;
@@ -670,7 +670,7 @@ button {
 }
 
 /* ==========================================================================
-   Manifesto / Historia Section (StreetBakers style)
+   Manifesto / Historia Section 
    ========================================================================== */
 .sb-manifesto-section {
   padding: 4.5rem 1.5rem;
@@ -815,7 +815,7 @@ button {
 }
 
 /* ==========================================================================
-   Bakery To Go Digital Menu & Ordering Section
+   Digital Menu & Ordering Section
    ========================================================================== */
 .pedir-section {
   padding: 5.5rem 1.5rem;
@@ -1610,7 +1610,7 @@ button {
 }
 
 /* ==========================================================================
-   Shopping Drawer (Bakery To Go Style)
+   Shopping Drawer 
    ========================================================================== */
 .cart-backdrop {
   position: fixed;
