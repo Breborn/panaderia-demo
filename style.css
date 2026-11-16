@@ -109,17 +109,12 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
-.breborn-tag {
+.breborn-center-msg {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(232, 56, 40, 0.2);
-  padding: 0.2rem 0.65rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(232, 56, 40, 0.4);
+  gap: 0.65rem;
 }
 
 .breborn-pulse {
@@ -129,6 +124,7 @@ button {
   border-radius: 50%;
   box-shadow: 0 0 8px #2ECC71;
   animation: pulseGreen 2s infinite;
+  flex-shrink: 0;
 }
 
 @keyframes pulseGreen {
@@ -137,23 +133,16 @@ button {
   100% { transform: scale(0.95); opacity: 0.8; }
 }
 
-.breborn-title {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  color: #FFF;
-  font-weight: 700;
-}
-
 .breborn-text {
-  flex: 1;
   margin: 0;
-  font-size: 0.82rem;
-  color: #CDBEB0;
+  font-size: 0.88rem;
+  color: #E6D8C8;
+  letter-spacing: 0.01em;
 }
 
 .breborn-text strong {
   color: #FFF;
+  font-weight: 800;
 }
 
 .breborn-actions {
@@ -232,7 +221,7 @@ button {
   transform: translateY(-1px);
 }
 
-/* Red Banner Ribbon Logo (Exact StreetBakers style) */
+/* Red Banner Ribbon Logo with Circular Ceres Badge (StreetBakers style) */
 .sb-brand-ribbon-wrap {
   display: flex;
   align-items: center;
@@ -240,10 +229,32 @@ button {
   text-decoration: none;
 }
 
+.sb-brand-combo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: var(--transition);
+}
+
+.sb-brand-combo:hover {
+  transform: scale(1.02);
+}
+
+.sb-brand-avatar-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #FFF;
+  border: 2px solid var(--sb-red);
+  box-shadow: 0 4px 12px rgba(232, 56, 40, 0.25);
+  flex-shrink: 0;
+}
+
 .sb-red-ribbon {
   position: relative;
-  width: 210px;
-  height: 52px;
+  width: 195px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,7 +277,7 @@ button {
   position: relative;
   z-index: 2;
   font-family: var(--font-display);
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 900;
   color: #FFF;
   letter-spacing: 0.02em;
@@ -443,7 +454,7 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.72) contrast(1.12);
+  filter: brightness(0.96) contrast(1.04);
   transform: scale(1);
   transition: transform 9s cubic-bezier(0.1, 0, 0.2, 1);
 }
@@ -455,7 +466,8 @@ button {
 .lead-bg-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(14, 7, 4, 0.3) 0%, rgba(10, 5, 3, 0.78) 90%);
+  background: linear-gradient(180deg, rgba(14, 7, 4, 0.08) 0%, rgba(14, 7, 4, 0.18) 45%, rgba(14, 7, 4, 0.46) 100%);
+  pointer-events: none;
 }
 
 /* Centered Lead Hero Content (Exact StreetBakers reference layout) */
@@ -530,15 +542,17 @@ button {
 }
 
 .lead-sub-desc {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: #EDE2D5;
-  max-width: 680px;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  color: #FFF;
+  max-width: 720px;
   margin: 0 auto 2.2rem;
   line-height: 1.6;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95);
 }
 
 .lead-sub-desc strong {
   color: var(--primary-gold);
+  font-weight: 800;
 }
 
 .lead-actions-row {
@@ -2156,4 +2170,35 @@ button {
     width: 54px;
     height: 54px;
   }
+}
+
+@media (max-width: 600px) {
+  .sb-brand-avatar-img {
+    width: 40px;
+    height: 40px;
+  }
+  .sb-red-ribbon {
+    width: 155px;
+    height: 42px;
+  }
+  .sb-ribbon-text {
+    font-size: 1.15rem;
+  }
+  .breborn-btn {
+    display: none;
+  }
+  .breborn-container {
+    justify-content: center;
+  }
+}
+
+.footer-avatar-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #FFF;
+  border: 2px solid var(--primary-gold);
+  margin-bottom: 0.85rem;
+  display: block;
 }

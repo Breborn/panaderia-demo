@@ -4,8 +4,8 @@
  * Developed by Breborn.cl
  */
 
-// Teléfono oficial para pedidos WhatsApp (+56 9 5164 4492)
-const WHATSAPP_PHONE = '56951644492';
+// Teléfono oficial para pedidos WhatsApp (+56 9 9185 9762 - Pan Ceres)
+const WHATSAPP_PHONE = '56991859762';
 const DELIVERY_FEE = 2500;
 
 // Estado Global
@@ -728,10 +728,10 @@ function sendWhatsAppOrder() {
   let branchNote = '';
   if (AppState.selectedMode === 'retiro-lautaro') {
     modeText = 'Retiro en Local Lautaro (09:00 a 20:00 hrs)';
-    branchNote = '📍 Sucursal Lautaro • Sector Centro';
+    branchNote = '📍 Sucursal Lautaro: Lautaro 692, Quilpué';
   } else if (AppState.selectedMode === 'retiro-bello') {
-    modeText = 'Retiro en Local Andrés Bello (09:00 a 19:30 hrs)';
-    branchNote = '📍 Sucursal Av. Andrés Bello • Sector Poniente';
+    modeText = 'Retiro en Local Andrés Bello (09:00 a 20:00 hrs)';
+    branchNote = '📍 Sucursal Andrés Bello: Andrés Bello 623, Quilpué';
   } else {
     modeText = `Delivery a Domicilio ($${formatNumber(DELIVERY_FEE)})`;
     branchNote = `🏠 Dirección: ${address}`;
@@ -746,7 +746,7 @@ function sendWhatsAppOrder() {
   ).join('\n');
 
   const messageLines = [
-    '🥖 *PEDIDO ONLINE • CERES MASA MADRE & STREETBAKERS*',
+    '🥖 *PEDIDO ONLINE • PAN CERES | CERES MASA MADRE*',
     '----------------------------------------',
     `👤 *Cliente:* ${name}`,
     `📦 *Modalidad:* ${modeText}`,
@@ -761,7 +761,7 @@ function sendWhatsAppOrder() {
     `✨ *TOTAL A PAGAR:* $${formatNumber(grandTotal)}`,
     notes ? `\n📝 *Notas:* ${notes}` : '',
     '----------------------------------------',
-    'Hola Ceres Masa Madre! Acabo de armar este pedido en su web y me gustaría confirmarlo. ¿Me indican datos para transferencia o pago?'
+    'Hola Pan Ceres! Acabo de armar este pedido en su web y me gustaría confirmarlo. ¿Me indican datos para transferencia o pago?'
   ];
 
   const fullMessage = messageLines.filter(line => line !== '').join('\n');
