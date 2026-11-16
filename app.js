@@ -167,17 +167,28 @@ const PRODUCTS = [
     image: 'assets/images/hero_hogaza.jpg'
   },
 
-  // 4. Bollería Hojaldrada & Dulces
+  // 4. Bollería Hojaldrada & Dulces Ceres
   {
     id: 'croissant-clasico',
-    name: 'Croissant Francés 100% Mantequilla',
+    name: 'Croissant de Masa Madre 100% Mantequilla (Foto Real Ceres)',
     category: 'bolleria',
-    categoryName: 'Hojaldre de Masa Madre',
-    tag: '100% Mantequilla Pura',
+    categoryName: 'Bollería Artesanal Quilpué',
+    tag: '100% Mantequilla Pura • Foto Real',
     weight: 'Unidad 120g',
     price: 2400,
-    desc: 'Hojaldre francés tradicional elaborado con masa madre y mantequilla pura de vaca. 27 capas doradas y crocantes, con interior sedoso.',
-    image: 'assets/images/croissants_bolleria.jpg'
+    desc: 'Hojaldre artesanal perfecto de elaboración propia en Quilpué. Capas doradas, alveolado abierto y 100% mantequilla pura con masa madre.',
+    image: 'assets/images/croissants_ceres_real.jpg'
+  },
+  {
+    id: 'croissant-pack-ceres',
+    name: 'Pack 4x Croissants Artesanales Ceres',
+    category: 'bolleria',
+    categoryName: 'Bollería Artesanal Quilpué',
+    tag: 'Para la Once Familiar',
+    weight: 'Pack 4 un. (480g)',
+    price: 8500,
+    desc: 'Cuatro croissants de masa madre dorados y crocantes por fuera, alveolados y sedosos por dentro. Perfectos para rellenar dulces o salados.',
+    image: 'assets/images/croissants_ceres_real.jpg'
   },
   {
     id: 'pain-au-chocolat',
@@ -213,50 +224,39 @@ const PRODUCTS = [
     image: 'assets/images/cinnamon_babka.jpg'
   },
 
-  // 5. Despensa Artesanal & Harinas
+  // 5. Pan de Pascua Ceres & Especiales de Temporada
   {
-    id: 'harina-fuerza-molino',
-    name: 'Harina de Fuerza Molino a Piedra Orgánica',
-    category: 'despensa',
-    categoryName: 'Materia Prima Pura',
-    tag: 'Molino a Piedra',
-    weight: 'Paquete 1kg',
-    price: 3500,
-    desc: 'Harina de trigo integral agroecológica, molida lentamente a la piedra conservando el germen y salvado natural. Ideal para tu masa madre.',
-    image: 'assets/images/despensa_artesanal.jpg'
-  },
-  {
-    id: 'mermelada-frutos-bosque',
-    name: 'Mermelada Artesanal de Frutos del Bosque',
-    category: 'despensa',
-    categoryName: 'Dulces del Campo',
-    tag: 'Fruta Chilena',
-    weight: 'Frasco 320g',
-    price: 4800,
-    desc: 'Cocida en paila de cobre con frambuesas, moras y arándanos frescos con bajo contenido de azúcar añadida. El maridaje ideal para hogazas.',
-    image: 'assets/images/despensa_artesanal.jpg'
-  },
-  {
-    id: 'miel-quillay-organica',
-    name: 'Miel de Quillay Cruda Orgánica',
-    category: 'despensa',
-    categoryName: 'Dulces del Campo',
-    tag: '100% Pura de Bosque',
-    weight: 'Frasco 500g',
-    price: 5500,
-    desc: 'Miel pura cruda sin pasteurizar cosechada en bosque nativo chileno. Notas florales ámbar ideales para quesos y panes rústicos.',
-    image: 'assets/images/despensa_artesanal.jpg'
-  },
-  {
-    id: 'cafe-especialidad-ceres',
-    name: 'Café de Especialidad Ceres Blend (Grano)',
-    category: 'despensa',
-    categoryName: 'Café de Especialidad',
-    tag: 'Tueste Medio Fresco',
-    weight: 'Bolsa 250g',
+    id: 'pan-de-pascua-chocolate-ceres',
+    name: 'Pan de Pascua de Masa Madre • Chips de Chocolate',
+    category: 'pascua',
+    categoryName: 'Especiales Ceres',
+    tag: 'Estrella de Temporada • Foto Real',
+    weight: 'Unidad 750g',
     price: 8900,
-    desc: 'Origen Colombia Huila & Etiopía Yirgacheffe, tostado semanalmente con notas a chocolate amargo, caramelo y sutil acidez de frutos rojos.',
-    image: 'assets/images/bg_horarios_panaderia.jpg'
+    desc: 'Elaborado con masa madre viva de fermentación lenta 36h, abundante chocolate bitter al 60% en chips y textura ultra suave y húmeda con aroma a mantequilla y miel.',
+    image: 'assets/images/pan_de_pascua_ceres.jpg'
+  },
+  {
+    id: 'pan-de-pascua-tradicional-ceres',
+    name: 'Pan de Pascua Artesanal • Nueces & Especias',
+    category: 'pascua',
+    categoryName: 'Especiales Ceres',
+    tag: 'Clásico Navideño Artesanal',
+    weight: 'Unidad 750g',
+    price: 8900,
+    desc: 'Receta tradicional con masa madre: nueces chilenas seleccionadas, almendras tostadas, canela de Ceilán, clavo de olor y toque de licor añejo.',
+    image: 'assets/images/pan_de_pascua_ceres.jpg'
+  },
+  {
+    id: 'pan-de-pascua-pack-duo',
+    name: 'Pack Dúo Pan de Pascua Ceres (Chocolate + Tradicional)',
+    category: 'pascua',
+    categoryName: 'Especiales Ceres',
+    tag: 'Ahorro Pack • Ideal Regalo',
+    weight: '2 Unidades (1.5kg)',
+    price: 16500,
+    desc: 'Lleva las dos variedades insignias de Pan Ceres: uno con abundantes chips de chocolate y otro tradicional con frutos secos y especias navideñas en bolsa kraft de regalo.',
+    image: 'assets/images/pan_de_pascua_ceres.jpg'
   }
 ];
 
