@@ -1,28 +1,24 @@
 /* ==========================================================================
-   CERES MASA MADRE • STREETBAKERS & BAKERY TO GO
-   High-Definition Hybrid Architecture & Styles System
+   STREETBAKERS • PAN PARA EXPERTOS & BAKERY TO GO
+   Design System & Architecture
    Developed by Breborn.cl
    ========================================================================== */
 
 :root {
-  /* StreetBakers & BakeryToGo Warm Palette */
-  --bg-main: #FAF7F2;
-  --bg-card: #FFFFFF;
-  --bg-card-subtle: #F5EFE6;
-  --bg-dark: #120B07;
-  --bg-dark-surface: #1E140D;
-  --bg-dark-accent: #2C1D13;
+  /* StreetBakers Signature Palette */
+  --sb-cream-bg: #F7F1E6;
+  --sb-cream-surface: #FBF7F0;
+  --sb-red: #E83828;
+  --sb-red-hover: #D02B1C;
+  --sb-red-dark: #B52215;
+  --sb-dark-bg: #140C07;
+  --sb-dark-card: #20140D;
 
   --primary-crust: #23160E;
   --primary-wheat: #C87A32;
-  --primary-wheat-hover: #B46A25;
   --primary-gold: #E5B26E;
-  --primary-cream: #FDFBF7;
-
   --accent-wsp: #25D366;
   --accent-wsp-dark: #20BA5A;
-  --accent-olive: #5B6B4C;
-  --accent-olive-bg: #EAEFE6;
 
   --text-dark: #221711;
   --text-muted: #6B5D54;
@@ -31,14 +27,14 @@
 
   --border-light: rgba(44, 26, 16, 0.08);
   --border-gold: rgba(229, 178, 110, 0.35);
-  --border-dark: rgba(255, 255, 255, 0.12);
 
   --shadow-sm: 0 2px 8px rgba(44, 26, 16, 0.05);
   --shadow-md: 0 8px 24px rgba(44, 26, 16, 0.08);
   --shadow-lg: 0 16px 45px rgba(44, 26, 16, 0.14);
-  --shadow-dark: 0 20px 50px rgba(0, 0, 0, 0.55);
+  --shadow-dark: 0 20px 50px rgba(0, 0, 0, 0.6);
 
   /* Fonts */
+  --font-display: 'Fraunces', Georgia, serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-cursive: 'Caveat', cursive;
@@ -68,7 +64,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-main);
+  background-color: var(--sb-cream-bg);
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
@@ -101,7 +97,7 @@ button {
   color: #E6D8C8;
   font-size: 0.85rem;
   padding: 0.6rem 1rem;
-  border-bottom: 1px solid rgba(200, 122, 50, 0.25);
+  border-bottom: 1px solid rgba(232, 56, 40, 0.25);
   position: relative;
   z-index: 1000;
 }
@@ -120,10 +116,10 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(200, 122, 50, 0.2);
+  background: rgba(232, 56, 40, 0.2);
   padding: 0.2rem 0.65rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(229, 178, 110, 0.4);
+  border: 1px solid rgba(232, 56, 40, 0.4);
 }
 
 .breborn-pulse {
@@ -145,7 +141,7 @@ button {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
-  color: var(--primary-gold);
+  color: #FFF;
   font-weight: 700;
 }
 
@@ -169,188 +165,168 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: var(--primary-wheat);
+  background: var(--sb-red);
   color: #FFF;
   font-size: 0.78rem;
-  font-weight: 600;
-  padding: 0.35rem 0.9rem;
+  font-weight: 700;
+  padding: 0.35rem 0.95rem;
   border-radius: var(--radius-pill);
   transition: var(--transition);
 }
 
 .breborn-btn:hover {
-  background: var(--primary-wheat-hover);
+  background: var(--sb-red-hover);
   transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   Header & Sticky Nav
+   StreetBakers Header (Cream Background & Curved Red Banner Logo)
    ========================================================================== */
-.site-header {
+.sb-header {
   position: sticky;
   top: 0;
-  z-index: 900;
-  background: rgba(18, 11, 7, 0.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(229, 178, 110, 0.18);
-  transition: var(--transition);
+  z-index: 950;
+  background: var(--sb-cream-bg);
+  border-bottom: 1px solid rgba(44, 26, 16, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
 }
 
-.header-container {
+.sb-header-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0.85rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
 }
 
-.brand-logo {
+/* Left & Right Nav */
+.sb-nav {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  text-decoration: none;
+  gap: 1.6rem;
+  flex: 1;
 }
 
-.logo-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #2E1F15 0%, #170F0A 100%);
-  border: 1px solid rgba(229, 178, 110, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+.sb-nav-left {
+  justify-content: flex-start;
 }
 
-.logo-svg {
-  width: 100%;
-  height: 100%;
+.sb-nav-right {
+  justify-content: flex-end;
 }
 
-.brand-text-block {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #FDFBF7;
-  line-height: 1.05;
-}
-
-.brand-sub {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  color: var(--primary-gold);
-  font-weight: 700;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.8rem;
-}
-
-.nav-link {
-  color: #D6CBC1;
-  font-size: 0.92rem;
-  font-weight: 600;
+.sb-nav-link {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--sb-red);
+  letter-spacing: -0.01em;
   transition: var(--transition);
-  position: relative;
-  padding: 0.3rem 0;
+  padding: 0.2rem 0;
 }
 
-.nav-link:hover {
-  color: #FFF;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary-wheat);
-  transition: width 0.25s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.header-ctas {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-/* Header WhatsApp Direct Pill */
-.header-wsp-pill {
-  display: none;
-  align-items: center;
-  gap: 0.45rem;
-  background: rgba(37, 211, 102, 0.15);
-  border: 1px solid rgba(37, 211, 102, 0.4);
-  color: #4EFA8D;
-  padding: 0.45rem 0.95rem;
-  border-radius: var(--radius-pill);
-  font-size: 0.82rem;
-  font-weight: 700;
-  transition: var(--transition);
-}
-
-@media (min-width: 992px) {
-  .header-wsp-pill {
-    display: inline-flex;
-  }
-}
-
-.header-wsp-pill:hover {
-  background: var(--accent-wsp);
-  color: #FFF;
-  border-color: var(--accent-wsp);
+.sb-nav-link:hover {
+  color: var(--sb-red-dark);
   transform: translateY(-1px);
 }
 
-.cart-trigger-btn {
-  display: inline-flex;
+/* Red Banner Ribbon Logo (Exact StreetBakers style) */
+.sb-brand-ribbon-wrap {
+  display: flex;
   align-items: center;
-  gap: 0.7rem;
-  background: linear-gradient(135deg, var(--primary-wheat) 0%, #A85E1E 100%);
-  color: #FFF;
-  padding: 0.55rem 1.15rem;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 4px 15px rgba(200, 122, 50, 0.35);
+  justify-content: center;
+  text-decoration: none;
+}
+
+.sb-red-ribbon {
+  position: relative;
+  width: 210px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: var(--transition);
 }
 
-.cart-trigger-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(200, 122, 50, 0.5);
+.sb-red-ribbon:hover {
+  transform: scale(1.03);
 }
 
-.cart-icon-wrapper {
+.sb-ribbon-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 10px rgba(232, 56, 40, 0.35));
+}
+
+.sb-ribbon-text {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #FFF;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Red Pill Button Zona Clientes */
+.sb-btn-zona {
+  display: inline-flex;
+  align-items: center;
+  background: var(--sb-red);
+  color: #FFF;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 0.55rem 1.4rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(232, 56, 40, 0.3);
+  transition: var(--transition);
+}
+
+.sb-btn-zona:hover {
+  background: var(--sb-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(232, 56, 40, 0.45);
+}
+
+/* Cart Button */
+.sb-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #FFF;
+  border: 1.5px solid rgba(232, 56, 40, 0.35);
+  color: var(--primary-crust);
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.sb-cart-btn:hover {
+  border-color: var(--sb-red);
+  transform: translateY(-1px);
+}
+
+.sb-cart-icon-wrap {
   position: relative;
   display: flex;
   align-items: center;
+  color: var(--sb-red);
 }
 
-.cart-badge-count {
+.sb-cart-badge {
   position: absolute;
   top: -8px;
   right: -9px;
-  background: #FFF;
-  color: var(--primary-crust);
+  background: var(--sb-red);
+  color: #FFF;
   font-size: 0.68rem;
   font-weight: 800;
   min-width: 18px;
@@ -359,17 +335,15 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1px;
-  border: 1.5px solid var(--primary-wheat);
 }
 
-.cart-btn-price {
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
+.sb-cart-price {
+  font-weight: 800;
+  font-size: 0.88rem;
 }
 
-.mobile-menu-toggle {
+/* Mobile Toggle */
+.sb-mobile-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -377,272 +351,316 @@ button {
   width: 36px;
   height: 36px;
   padding: 6px;
-  background: rgba(255, 255, 255, 0.08);
+  background: #FFF;
+  border: 1px solid rgba(44, 26, 16, 0.1);
   border-radius: 8px;
 }
 
-.hamburger-bar {
+.sb-bar {
   width: 100%;
   height: 2px;
-  background-color: #FFF;
+  background-color: var(--sb-red);
   border-radius: 2px;
-  transition: var(--transition);
 }
 
-.mobile-nav-collapse {
+.sb-mobile-collapse {
   display: none;
-  background: #140C07;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--sb-cream-bg);
+  border-top: 1px solid rgba(44, 26, 16, 0.08);
   padding: 1rem 1.25rem 1.5rem;
 }
 
-.mobile-nav-collapse.open {
+.sb-mobile-collapse.open {
   display: block;
 }
 
-.mobile-nav-list {
+.sb-mobile-list {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
 }
 
-.mobile-nav-link {
-  color: #EDE4D8;
-  font-size: 1rem;
-  padding: 0.6rem 0.5rem;
-  border-radius: 6px;
+.sb-mobile-link {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--sb-red);
+  padding: 0.5rem 0;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  transition: var(--transition);
+  gap: 0.5rem;
 }
 
-.mobile-nav-link:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--primary-gold);
-}
-
-.mobile-nav-link.whatsapp-mobile-link {
-  color: #4EFA8D;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 0.5rem;
+.sb-mobile-link.sb-wsp-link {
+  color: #128C7E;
+  border-top: 1px solid rgba(44, 26, 16, 0.08);
   padding-top: 0.85rem;
 }
 
 /* ==========================================================================
-   Full-Bleed Cinematic Hero with Video
+   Lead Hero Slider (Background Photo Carousel with Centered Overlay)
    ========================================================================== */
-.hero-video-section {
+.lead-hero-slider {
   position: relative;
-  min-height: 88vh;
+  min-height: 82vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 1.5rem 4.5rem;
+  padding: 4.5rem 1.5rem 4rem;
   color: #FFF;
   overflow: hidden;
-  background-color: var(--bg-dark);
+  background-color: #0E0704;
 }
 
-.hero-video-wrapper {
+@media (max-width: 768px) {
+  .lead-hero-slider {
+    min-height: 75vh;
+  }
+}
+
+/* Background Slides (One after another) */
+.lead-bg-slides {
   position: absolute;
   inset: 0;
   z-index: 1;
-  overflow: hidden;
 }
 
-.hero-bg-video {
+.lead-bg-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.lead-bg-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lead-bg-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 45%;
-  filter: brightness(0.62) contrast(1.1);
-  transform: scale(1.03);
+  object-position: center;
+  filter: brightness(0.72) contrast(1.12);
+  transform: scale(1);
+  transition: transform 9s cubic-bezier(0.1, 0, 0.2, 1);
 }
 
-.hero-video-overlay {
+.lead-bg-slide.active .lead-bg-img {
+  transform: scale(1.05);
+}
+
+.lead-bg-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(18, 11, 7, 0.35) 0%, rgba(12, 7, 4, 0.88) 85%);
+  background: radial-gradient(circle at center, rgba(14, 7, 4, 0.3) 0%, rgba(10, 5, 3, 0.78) 90%);
 }
 
-.hero-video-content {
+/* Centered Lead Hero Content (Exact StreetBakers reference layout) */
+.lead-hero-content {
   position: relative;
-  z-index: 2;
-  max-width: 900px;
+  z-index: 3;
+  max-width: 860px;
   text-align: center;
   margin: 0 auto;
 }
 
-.hero-badge-row {
+/* Pill Button WhatsApp -> */
+.lead-wsp-pill-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.lead-wsp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  padding: 0.42rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+.lead-wsp-pill:hover {
+  background: var(--accent-wsp);
+  border-color: var(--accent-wsp);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.lead-pill-arrow {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.lead-wsp-pill:hover .lead-pill-arrow {
+  transform: translateX(3px);
+}
+
+/* Chunky Display Headline: PAN PARA EXPERTOS / Enviamos a todo Chile */
+.lead-chunky-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+}
+
+.lead-chunky-line1 {
+  display: block;
+  font-size: clamp(2.4rem, 6.2vw, 4.4rem);
+  color: #FFF;
+}
+
+.lead-chunky-line2 {
+  display: block;
+  font-size: clamp(1.8rem, 4.8vw, 3.4rem);
+  color: #FFF;
+}
+
+.lead-sub-desc {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #EDE2D5;
+  max-width: 680px;
+  margin: 0 auto 2.2rem;
+  line-height: 1.6;
+}
+
+.lead-sub-desc strong {
+  color: var(--primary-gold);
+}
+
+.lead-actions-row {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
 
-.hero-live-badge {
+.btn-lead-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background: rgba(26, 16, 10, 0.85);
+  background: var(--sb-red);
+  color: #FFF;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 6px 20px rgba(232, 56, 40, 0.45);
+  transition: var(--transition);
+}
+
+.btn-lead-primary:hover {
+  background: var(--sb-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(232, 56, 40, 0.65);
+}
+
+.btn-lead-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(229, 178, 110, 0.45);
-  padding: 0.4rem 1.15rem;
+  color: #FFF;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.9rem 1.8rem;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: var(--transition);
 }
 
-.live-pulse-dot {
-  width: 8px;
-  height: 8px;
+.btn-lead-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Slider Nav Arrows */
+.lead-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background-color: #E74C3C;
-  box-shadow: 0 0 10px #E74C3C;
-  animation: pulseRed 1.8s infinite;
-}
-
-@keyframes pulseRed {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
-}
-
-.live-badge-txt {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--primary-gold);
-}
-
-.hero-main-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5.8vw, 4.4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-  margin-bottom: 1.3rem;
-  color: #FDFBF7;
-  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
-}
-
-.hero-title-golden {
-  color: var(--primary-gold);
-  font-style: italic;
-  font-weight: 500;
-}
-
-.hero-subtitle-text {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  color: #EDE2D5;
-  max-width: 760px;
-  margin: 0 auto 2.2rem;
-  line-height: 1.65;
-  font-weight: 400;
-}
-
-.hero-subtitle-text strong {
-  color: var(--primary-gold);
-}
-
-.hero-features-chips {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
-  margin-bottom: 2.5rem;
+  transition: var(--transition);
 }
 
-.feature-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.88rem;
-  color: #E8DCD0;
-  background: rgba(0, 0, 0, 0.45);
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(4px);
+.lead-slider-arrow:hover {
+  background: var(--sb-red);
+  border-color: var(--sb-red);
+  transform: translateY(-50%) scale(1.08);
 }
 
-.hero-actions-group {
+.lead-slider-arrow.prev {
+  left: 20px;
+}
+
+.lead-slider-arrow.next {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .lead-slider-arrow {
+    display: none;
+  }
+}
+
+/* Bottom Slider Dots */
+.lead-slider-dots {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+  gap: 0.6rem;
 }
 
-.btn-hero-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: linear-gradient(135deg, var(--primary-wheat) 0%, #A85E1E 100%);
-  color: #FFF;
-  font-size: 1.05rem;
-  font-weight: 700;
-  padding: 0.95rem 1.95rem;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 6px 22px rgba(200, 122, 50, 0.45);
+.lead-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
   transition: var(--transition);
 }
 
-.btn-hero-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(200, 122, 50, 0.65);
-}
-
-.btn-hero-wsp {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: #25D366;
-  color: #FFF;
-  font-size: 1.05rem;
-  font-weight: 700;
-  padding: 0.95rem 1.95rem;
+.lead-dot.active {
+  width: 28px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.4);
-  transition: var(--transition);
-}
-
-.btn-hero-wsp:hover {
-  background: #20BA5A;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.6);
-}
-
-.hero-fresh-tagline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--primary-gold);
-}
-
-.arrow-hand {
-  font-size: 1.3rem;
-  transform: translateY(2px);
-}
-
-.txt-hand {
-  font-family: var(--font-cursive);
-  font-size: 1.45rem;
-  letter-spacing: 0.02em;
+  background: var(--sb-red);
 }
 
 /* ==========================================================================
-   StreetBakers High-Definition Showcase Carousel
+   Manifesto / Historia Section (StreetBakers style)
    ========================================================================== */
-.street-carousel-section {
-  padding: 5.5rem 1.5rem;
-  background: #FFF;
-  border-bottom: 1px solid var(--border-light);
+.sb-manifesto-section {
+  padding: 4.5rem 1.5rem;
+  background-color: var(--sb-cream-bg);
 }
 
 .section-container {
@@ -650,273 +668,145 @@ button {
   margin: 0 auto;
 }
 
-.section-header-street {
+.manifesto-card {
+  background: #FFF;
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 3rem;
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto 3rem;
+  max-width: 920px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(44, 26, 16, 0.08);
 }
 
-.street-badge-chip {
+@media (max-width: 600px) {
+  .manifesto-card {
+    padding: 2.2rem 1.5rem;
+  }
+}
+
+.manifesto-badge {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: var(--primary-wheat);
-  background: var(--bg-card-subtle);
+  color: var(--sb-red);
+  background: rgba(232, 56, 40, 0.1);
   padding: 0.35rem 0.9rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(200, 122, 50, 0.25);
-  margin-bottom: 0.9rem;
-}
-
-.street-section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4.5vw, 3.3rem);
-  color: var(--primary-crust);
-  line-height: 1.15;
-  margin-bottom: 0.85rem;
-  font-weight: 700;
-}
-
-.street-section-desc {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* Carousel Master Container */
-.carousel-master {
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.carousel-track-wrapper {
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-light);
-  background: var(--bg-dark);
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.carousel-slide {
-  min-width: 100%;
-  box-sizing: border-box;
-}
-
-.slide-card {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  background: #FFF;
-  min-height: 480px;
-}
-
-@media (max-width: 860px) {
-  .slide-card {
-    grid-template-columns: 1fr;
-  }
-}
-
-.slide-image-box {
-  position: relative;
-  overflow: hidden;
-  background: #180F09;
-}
-
-.slide-img {
-  width: 100%;
-  height: 100%;
-  min-height: 380px;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.slide-card:hover .slide-img {
-  transform: scale(1.04);
-}
-
-.slide-floating-badge {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  background: rgba(18, 11, 7, 0.88);
-  backdrop-filter: blur(8px);
-  color: var(--primary-gold);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 0.35rem 0.8rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(229, 178, 110, 0.4);
-}
-
-.slide-content-box {
-  padding: 3rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #FFF;
-}
-
-@media (max-width: 600px) {
-  .slide-content-box {
-    padding: 2rem 1.5rem;
-  }
-}
-
-.slide-tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: var(--primary-wheat);
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.slide-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-  font-weight: 700;
-  color: var(--primary-crust);
-  line-height: 1.15;
   margin-bottom: 1rem;
 }
 
-.slide-text {
-  font-size: 0.98rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.slide-specs {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.85rem;
-  margin-bottom: 2rem;
-}
-
-.slide-specs span {
-  font-size: 0.82rem;
-  background: var(--bg-card-subtle);
+.manifesto-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 900;
   color: var(--primary-crust);
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  border: 1px solid rgba(200, 122, 50, 0.15);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
 }
 
-.slide-footer-action {
+.manifesto-text {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto 2rem;
+}
+
+.manifesto-pill-tags {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
   flex-wrap: wrap;
-  border-top: 1px solid var(--border-light);
-  padding-top: 1.5rem;
+  gap: 0.6rem 0.9rem;
 }
 
-.slide-price {
-  font-size: 1.5rem;
+.manifesto-pill-tags span {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--primary-crust);
+  background: var(--sb-cream-bg);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(44, 26, 16, 0.1);
 }
 
-.slide-price small {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text-muted);
+/* Video Artesanal Obrador */
+.manifesto-video-wrapper {
+  position: relative;
+  width: 100%;
+  max-height: 440px;
+  margin-top: 2.2rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(44, 26, 16, 0.12);
+  background: #0E0704;
+}
+
+.manifesto-video {
+  width: 100%;
+  height: 100%;
+  max-height: 440px;
+  object-fit: cover;
   display: block;
+  filter: brightness(0.92) contrast(1.06);
 }
 
-.btn-slide-wsp {
+.manifesto-video-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--accent-wsp);
+  background: rgba(14, 7, 4, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #FFF;
-  font-size: 0.92rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 0.75rem 1.4rem;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 0.95rem;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-  transition: var(--transition);
-  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.btn-slide-wsp:hover {
-  background: var(--accent-wsp-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-}
-
-/* Carousel Controls */
-.carousel-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.8rem;
-}
-
-.carousel-arrow {
-  width: 44px;
-  height: 44px;
+.video-pulse-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #FFF;
-  border: 1px solid var(--border-light);
-  color: var(--primary-crust);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  background: #FF3B30;
+  box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+  animation: pulseRed 2s infinite;
 }
 
-.carousel-arrow:hover {
-  background: var(--primary-wheat);
-  color: #FFF;
-  border-color: var(--primary-wheat);
-  transform: scale(1.05);
-}
-
-.carousel-indicators {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #D8CEBE;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.carousel-dot.active {
-  width: 28px;
-  border-radius: var(--radius-pill);
-  background: var(--primary-wheat);
+@keyframes pulseRed {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(255, 59, 48, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
+  }
 }
 
 /* ==========================================================================
-   Bakery To Go Style Digital Catalog & Ordering
+   Bakery To Go Digital Menu & Ordering Section
    ========================================================================== */
 .pedir-section {
   padding: 5.5rem 1.5rem;
-  background-color: var(--bg-main);
+  background-color: var(--sb-cream-surface);
+  border-top: 1px solid var(--border-light);
 }
 
 .section-header-centered {
@@ -936,24 +826,24 @@ button {
   display: inline-block;
   width: 32px;
   height: 1px;
-  background: var(--primary-wheat);
+  background: var(--sb-red);
 }
 
 .eyebrow-text {
   font-family: var(--font-mono);
   font-size: 0.76rem;
   letter-spacing: 0.16em;
-  color: var(--primary-wheat);
+  color: var(--sb-red);
   font-weight: 700;
 }
 
 .section-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   color: var(--primary-crust);
   line-height: 1.15;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .section-subtitle {
@@ -962,7 +852,6 @@ button {
   line-height: 1.6;
 }
 
-/* Category Tabs (BakeryToGo style) */
 .category-tabs-wrapper {
   margin-bottom: 3rem;
   overflow-x: auto;
@@ -988,22 +877,23 @@ button {
   border: 1px solid var(--border-light);
   color: var(--text-dark);
   font-size: 0.92rem;
-  font-weight: 600;
+  font-weight: 700;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
 }
 
 .cat-tab-btn:hover {
-  background: var(--bg-card-subtle);
-  border-color: rgba(200, 122, 50, 0.3);
+  background: #FFF;
+  border-color: var(--sb-red);
+  color: var(--sb-red);
   transform: translateY(-1px);
 }
 
 .cat-tab-btn.active {
-  background: var(--primary-crust);
+  background: var(--sb-red);
   color: #FFF;
-  border-color: var(--primary-crust);
-  box-shadow: 0 4px 15px rgba(44, 26, 16, 0.25);
+  border-color: var(--sb-red);
+  box-shadow: 0 4px 15px rgba(232, 56, 40, 0.3);
 }
 
 .tab-emoji {
@@ -1033,7 +923,7 @@ button {
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(200, 122, 50, 0.25);
+  border-color: rgba(232, 56, 40, 0.25);
 }
 
 .product-media {
@@ -1070,18 +960,17 @@ button {
   letter-spacing: 0.05em;
   padding: 0.3rem 0.65rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(229, 178, 110, 0.35);
 }
 
 .product-weight-badge {
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(4px);
   color: var(--primary-crust);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-sm);
 }
@@ -1097,18 +986,18 @@ button {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.1em;
-  color: var(--primary-wheat);
+  color: var(--sb-red);
   text-transform: uppercase;
   margin-bottom: 0.35rem;
   font-weight: 700;
 }
 
 .product-name {
-  font-family: var(--font-serif);
-  font-size: 1.45rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
   color: var(--primary-crust);
-  line-height: 1.2;
+  line-height: 1.25;
   margin-bottom: 0.6rem;
 }
 
@@ -1140,28 +1029,28 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: var(--bg-card-subtle);
-  color: var(--primary-crust);
-  border: 1px solid rgba(200, 122, 50, 0.3);
-  padding: 0.55rem 1.1rem;
+  background: rgba(232, 56, 40, 0.08);
+  color: var(--sb-red);
+  border: 1px solid rgba(232, 56, 40, 0.3);
+  padding: 0.55rem 1.15rem;
   border-radius: var(--radius-pill);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 800;
   transition: var(--transition);
 }
 
 .product-add-btn:hover {
-  background: var(--primary-wheat);
+  background: var(--sb-red);
   color: #FFF;
-  border-color: var(--primary-wheat);
+  border-color: var(--sb-red);
   transform: translateY(-1px);
 }
 
-/* HORECA / StreetBakers Wholesale Box */
+/* Wholesale HORECA Box */
 .horeca-box {
   background: linear-gradient(135deg, #1C120B 0%, #100905 100%);
   border-radius: var(--radius-lg);
-  padding: 3rem 2.5rem;
+  padding: 3.2rem 2.5rem;
   border: 1px solid rgba(229, 178, 110, 0.3);
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -1184,20 +1073,20 @@ button {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  background: rgba(200, 122, 50, 0.25);
-  color: var(--primary-gold);
+  background: rgba(232, 56, 40, 0.25);
+  color: #FFA399;
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(229, 178, 110, 0.35);
+  border: 1px solid rgba(232, 56, 40, 0.4);
   margin-bottom: 1rem;
 }
 
 .horeca-content h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.3rem);
   color: #FFF;
   margin-bottom: 0.85rem;
-  font-weight: 700;
+  font-weight: 900;
   line-height: 1.2;
 }
 
@@ -1214,7 +1103,7 @@ button {
   gap: 0.5rem;
   color: var(--primary-gold);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 @media (max-width: 860px) {
@@ -1228,10 +1117,10 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  background: #25D366;
+  background: var(--accent-wsp);
   color: #FFF;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 1.1rem 1.8rem;
   border-radius: var(--radius-pill);
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
@@ -1241,17 +1130,17 @@ button {
 }
 
 .btn-horeca-wsp:hover {
-  background: #20BA5A;
+  background: var(--accent-wsp-dark);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
 }
 
 /* ==========================================================================
-   Notice Board / Horarios & Locales (Dark Bakery Style)
+   Notice Board / Horarios Section
    ========================================================================== */
 .schedule-section {
   padding: 6rem 1.5rem;
-  background-color: var(--bg-main);
+  background-color: var(--sb-cream-bg);
 }
 
 .notice-board-container {
@@ -1302,18 +1191,13 @@ button {
   margin-bottom: 1.5rem;
 }
 
-.board-mini-logo {
-  display: inline-block;
-  margin-bottom: 0.3rem;
-}
-
 .board-brand-name {
   display: block;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.85rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: #FDFBF7;
-  font-weight: 700;
+  font-weight: 900;
   line-height: 1;
 }
 
@@ -1324,7 +1208,7 @@ button {
   letter-spacing: 0.22em;
   color: var(--primary-gold);
   font-weight: 700;
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
 }
 
 .board-headline-block {
@@ -1400,9 +1284,9 @@ button {
 }
 
 .branch-name {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 900;
   color: #FFF;
   margin-bottom: 0.2rem;
 }
@@ -1498,11 +1382,11 @@ button {
 }
 
 /* ==========================================================================
-   Breborn Callout Section
+   Breborn Showcase Section
    ========================================================================== */
 .breborn-showcase-section {
   padding: 4.5rem 1.5rem;
-  background: var(--bg-dark);
+  background: var(--sb-dark-bg);
 }
 
 .breborn-card-banner {
@@ -1522,20 +1406,20 @@ button {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  background: rgba(200, 122, 50, 0.25);
-  color: var(--primary-gold);
+  background: rgba(232, 56, 40, 0.25);
+  color: #FFA399;
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-pill);
   margin-bottom: 1rem;
-  border: 1px solid rgba(229, 178, 110, 0.35);
+  border: 1px solid rgba(232, 56, 40, 0.4);
 }
 
 .breborn-card-banner h2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.8vw, 2.6rem);
   color: #FFF;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .breborn-card-banner p {
@@ -1561,19 +1445,20 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: linear-gradient(135deg, var(--primary-wheat) 0%, #A85E1E 100%);
+  background: var(--sb-red);
   color: #FFF;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 0.95rem 2rem;
   border-radius: var(--radius-pill);
-  box-shadow: 0 6px 20px rgba(200, 122, 50, 0.4);
+  box-shadow: 0 6px 20px rgba(232, 56, 40, 0.4);
   transition: var(--transition);
 }
 
 .btn-breborn-cta:hover {
+  background: var(--sb-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(200, 122, 50, 0.6);
+  box-shadow: 0 8px 25px rgba(232, 56, 40, 0.6);
 }
 
 /* ==========================================================================
@@ -1609,11 +1494,11 @@ button {
 }
 
 .footer-logo .brand-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.7rem;
   color: #FFF;
   display: block;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .footer-logo .brand-sub {
@@ -1643,11 +1528,11 @@ button {
 }
 
 .footer-heading {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.15rem;
   color: #FFF;
   margin-bottom: 1.2rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .footer-links {
@@ -1755,7 +1640,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--bg-main);
+  background: var(--sb-cream-bg);
 }
 
 .drawer-title-block {
@@ -1769,9 +1654,9 @@ button {
 }
 
 .drawer-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--primary-crust);
   line-height: 1.1;
 }
@@ -1802,7 +1687,7 @@ button {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.4rem;
   padding: 0.75rem 1rem;
-  background: var(--bg-card-subtle);
+  background: #FFF;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -1814,18 +1699,18 @@ button {
   gap: 0.2rem;
   padding: 0.45rem 0.2rem;
   border-radius: var(--radius-sm);
-  background: #FFF;
+  background: var(--sb-cream-bg);
   border: 1px solid var(--border-light);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-dark);
   transition: var(--transition);
 }
 
 .mode-pill.active {
-  background: var(--primary-crust);
+  background: var(--sb-red);
   color: #FFF;
-  border-color: var(--primary-crust);
+  border-color: var(--sb-red);
 }
 
 .mode-icon {
@@ -1854,7 +1739,7 @@ button {
 }
 
 .empty-cart-view h4 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--primary-crust);
   margin-bottom: 0.4rem;
@@ -1867,10 +1752,10 @@ button {
 
 .btn-start-shopping {
   display: inline-block;
-  background: var(--primary-crust);
+  background: var(--sb-red);
   color: #FFF;
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0.65rem 1.35rem;
   border-radius: var(--radius-pill);
 }
@@ -1897,9 +1782,9 @@ button {
 }
 
 .cart-item-title {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
   color: var(--primary-crust);
   line-height: 1.2;
 }
@@ -1920,7 +1805,7 @@ button {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--bg-card-subtle);
+  background: var(--sb-cream-bg);
   border: 1px solid var(--border-light);
   display: flex;
   align-items: center;
@@ -1932,7 +1817,7 @@ button {
 }
 
 .qty-btn:hover {
-  background: var(--primary-wheat);
+  background: var(--sb-red);
   color: #FFF;
 }
 
@@ -1946,7 +1831,7 @@ button {
 
 .cart-item-subtotal {
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--primary-crust);
   text-align: right;
   min-width: 65px;
@@ -1967,7 +1852,7 @@ button {
 .drawer-footer {
   border-top: 1px solid var(--border-light);
   padding: 1.25rem 1.5rem;
-  background: var(--bg-main);
+  background: var(--sb-cream-bg);
   max-height: 48vh;
   overflow-y: auto;
 }
@@ -2005,8 +1890,8 @@ button {
 
 .form-input:focus {
   outline: none;
-  border-color: var(--primary-wheat);
-  box-shadow: 0 0 0 2px rgba(200, 122, 50, 0.2);
+  border-color: var(--sb-red);
+  box-shadow: 0 0 0 2px rgba(232, 56, 40, 0.2);
 }
 
 .cart-summary-box {
@@ -2031,7 +1916,7 @@ button {
   display: flex;
   justify-content: space-between;
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--primary-crust);
   border-top: 1px dashed var(--border-light);
   padding-top: 0.5rem;
@@ -2039,7 +1924,7 @@ button {
 }
 
 .total-highlight {
-  color: var(--primary-wheat);
+  color: var(--sb-red);
   font-size: 1.3rem;
 }
 
@@ -2052,7 +1937,7 @@ button {
   background: #25D366;
   color: #FFF;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 0.9rem 1.25rem;
   border-radius: var(--radius-pill);
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
@@ -2074,7 +1959,7 @@ button {
 }
 
 /* ==========================================================================
-   Floating WhatsApp Quick Button (StreetBakers style)
+   Floating WhatsApp Quick Button
    ========================================================================== */
 .floating-wsp-button {
   position: fixed;
@@ -2109,17 +1994,17 @@ button {
 .floating-wsp-tooltip {
   position: absolute;
   right: 74px;
-  background: var(--bg-dark);
+  background: var(--sb-dark-bg);
   color: #FFF;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0.4rem 0.85rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   transition: var(--transition);
-  border: 1px solid rgba(229, 178, 110, 0.3);
+  border: 1px solid rgba(232, 56, 40, 0.3);
 }
 
 .floating-wsp-button:hover .floating-wsp-tooltip {
@@ -2134,7 +2019,7 @@ button {
   position: fixed;
   bottom: 1rem;
   left: 1rem;
-  right: 5.5rem; /* leave space for floating wsp */
+  right: 5.5rem;
   z-index: 850;
   animation: slideUpMobile 0.3s ease;
 }
@@ -2146,9 +2031,9 @@ button {
 
 .mobile-cart-action-btn {
   width: 100%;
-  background: linear-gradient(135deg, var(--primary-crust) 0%, #1A1009 100%);
+  background: #140C07;
   color: #FFF;
-  border: 1px solid var(--border-gold);
+  border: 1px solid rgba(232, 56, 40, 0.4);
   border-radius: var(--radius-pill);
   padding: 0.75rem 1.25rem;
   display: flex;
@@ -2171,7 +2056,7 @@ button {
   position: absolute;
   top: -6px;
   right: -8px;
-  background: var(--primary-wheat);
+  background: var(--sb-red);
   color: #FFF;
   font-size: 0.65rem;
   font-weight: 800;
@@ -2221,7 +2106,7 @@ button {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: var(--primary-crust);
+  background: #140C07;
   color: #FFF;
   padding: 0.75rem 1.4rem;
   border-radius: var(--radius-pill);
@@ -2230,12 +2115,12 @@ button {
   align-items: center;
   gap: 0.6rem;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   z-index: 1500;
   opacity: 0;
   pointer-events: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--sb-red);
 }
 
 .toast-notification.show {
@@ -2244,7 +2129,7 @@ button {
 }
 
 .toast-icon {
-  background: var(--primary-wheat);
+  background: var(--sb-red);
   color: #FFF;
   width: 20px;
   height: 20px;
@@ -2259,10 +2144,10 @@ button {
    Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 900px) {
-  .nav-links {
+  .sb-nav-left, .sb-nav-right .sb-nav-link, .sb-btn-zona {
     display: none;
   }
-  .mobile-menu-toggle {
+  .sb-mobile-toggle {
     display: flex;
   }
   .floating-wsp-button {

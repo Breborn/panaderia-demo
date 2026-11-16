@@ -264,7 +264,7 @@ const PRODUCTS = [
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   initCategoryFilters();
-  initStreetBakersCarousel();
+  initLeadHeroSlider();
   initCartDrawer();
   initModePills();
   initMobileMenu();
@@ -273,101 +273,140 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. StreetBakers High-Definition Carousel Logic
+ * 1. StreetBakers Lead Hero Background Slider (Ken Burns + Smooth Crossfade)
+ * Cycles high-definition bakery & burger bun photography one after another.
  */
-function initStreetBakersCarousel() {
-  const track = document.getElementById('carouselTrack');
-  const slides = document.querySelectorAll('.carousel-slide');
-  const prevBtn = document.getElementById('carouselPrevBtn');
-  const nextBtn = document.getElementById('carouselNextBtn');
-  const indicatorsContainer = document.getElementById('carouselIndicators');
+function initLeadHeroSlider() {
+  const slides = document.querySelectorAll('.lead-bg-slide');
+  const prevBtn = document.getElementById('leadPrevBtn');
+  const nextBtn = document.getElementById('leadNextBtn');
+  const dotsContainer = document.getElementById('leadSliderDots');
+  const heroSlider = document.querySelector('.lead-hero-slider');
 
-  if (!track || slides.length === 0) return;
+  if (!slides || slides.length === 0) return;
 
   const totalSlides = slides.length;
+  let currentIndex = 0;
+  let autoTimer = null;
 
   // Render dots
-  if (indicatorsContainer) {
-    indicatorsContainer.innerHTML = Array.from({ length: totalSlides }).map((_, i) => 
-      `<span class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`
+  if (dotsContainer) {
+    dotsContainer.innerHTML = Array.from({ length: totalSlides }).map((_, i) => 
+      `<button class="lead-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Foto ${i + 1} de ${totalSlides}"></button>`
     ).join('');
 
-    const dots = indicatorsContainer.querySelectorAll('.carousel-dot');
+    const dots = dotsContainer.querySelectorAll('.lead-dot');
     dots.forEach(dot => {
-      dot.addEventListener('click', () => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
         const idx = parseInt(dot.getAttribute('data-index'), 10);
         goToSlide(idx);
+        restartTimer();
       });
     });
   }
 
   function goToSlide(index) {
     if (index < 0) {
-      AppState.currentSlide = totalSlides - 1;
+      currentIndex = totalSlides - 1;
     } else if (index >= totalSlides) {
-      AppState.currentSlide = 0;
+      currentIndex = 0;
     } else {
-      AppState.currentSlide = index;
+      currentIndex = index;
     }
 
-    track.style.transform = `translateX(-${AppState.currentSlide * 100}%)`;
-
-    // Update active class
-    slides.forEach((s, i) => {
-      s.classList.toggle('active', i === AppState.currentSlide);
+    // Toggle active class on background slides
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIndex);
     });
 
-    // Update dots
-    if (indicatorsContainer) {
-      const dots = indicatorsContainer.querySelectorAll('.carousel-dot');
-      dots.forEach((d, i) => {
-        d.classList.toggle('active', i === AppState.currentSlide);
+    // Toggle active class on dots
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.lead-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
       });
     }
   }
 
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  function startTimer() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, 5500); // 5.5s per photo for relaxed visual enjoyment
+  }
+
+  function restartTimer() {
+    if (autoTimer) clearInterval(autoTimer);
+    startTimer();
+  }
+
   if (prevBtn) {
-    prevBtn.addEventListener('click', () => goToSlide(AppState.currentSlide - 1));
-  }
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => goToSlide(AppState.currentSlide + 1));
-  }
-
-  // Auto-play every 6 seconds
-  let autoTimer = setInterval(() => {
-    goToSlide(AppState.currentSlide + 1);
-  }, 6000);
-
-  // Pause on hover
-  const carouselMaster = document.getElementById('streetCarousel');
-  if (carouselMaster) {
-    carouselMaster.addEventListener('mouseenter', () => clearInterval(autoTimer));
-    carouselMaster.addEventListener('mouseleave', () => {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(() => {
-        goToSlide(AppState.currentSlide + 1);
-      }, 6000);
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      prevSlide();
+      restartTimer();
     });
   }
 
-  // Touch Swipe for Mobile
-  let startX = 0;
-  let endX = 0;
-  track.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      nextSlide();
+      restartTimer();
+    });
+  }
 
-  track.addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        goToSlide(AppState.currentSlide + 1); // Swipe left -> next
-      } else {
-        goToSlide(AppState.currentSlide - 1); // Swipe right -> prev
-      }
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+    if (e.key === 'ArrowLeft') {
+      prevSlide();
+      restartTimer();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+      restartTimer();
     }
-  }, { passive: true });
+  });
+
+  // Pause on hover
+  if (heroSlider) {
+    heroSlider.addEventListener('mouseenter', () => {
+      if (autoTimer) clearInterval(autoTimer);
+    });
+    heroSlider.addEventListener('mouseleave', () => {
+      startTimer();
+    });
+
+    // Touch Swipe for Mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    heroSlider.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    heroSlider.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 45) {
+        if (diff > 0) {
+          nextSlide(); // Swipe left -> next photo
+        } else {
+          prevSlide(); // Swipe right -> prev photo
+        }
+        restartTimer();
+      }
+    }, { passive: true });
+  }
+
+  // Initial timer start
+  startTimer();
 }
 
 /**
