@@ -85,7 +85,7 @@ const PRODUCTS = [
     weight: 'Hogaza 950g',
     price: 6400,
     desc: 'Grabada a mano alzada con navajas UFO antes de entrar al horno de piedra. Espigas y hojas doradas crujientes sobre miga esponjosa.',
-    image: 'assets/images/sourdough_scoring_pinterest.jpg'
+    image: 'assets/images/sourdough_scoring.jpg'
   },
   {
     id: 'hogaza-multisemillas',
@@ -131,7 +131,7 @@ const PRODUCTS = [
     weight: 'Pieza 300g',
     price: 2200,
     desc: 'Elaborada bajo el método poolish con 24 horas de reposo. Piel fina que cruje al partirla y miga crema con grandes ojos irregulares.',
-    image: 'assets/images/baguettes_basket_pinterest.jpg'
+    image: 'assets/images/baguettes_basket.jpg'
   },
   {
     id: 'focaccia-pomodoro',
