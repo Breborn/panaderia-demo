@@ -235,6 +235,29 @@ const PRODUCTS = [
     price: 8900,
     desc: 'Receta tradicional con masa madre: coronado con nueces chilenas tostadas, almendras enteras, canela de Ceilán, clavo de olor y toque de licor añejo.',
     image: 'assets/images/pan_pascua_tradicional_artesanal.jpg'
+  },
+  // 6. Muffins Artesanales de Autor (Recién Horneados)
+  {
+    id: 'muffin-chocolate-belga',
+    name: 'Muffin de Chocolate Belga & Doble Chips',
+    category: 'muffins',
+    categoryName: 'Muffins Artesanales',
+    tag: 'Doble Cacao & Chips 60%',
+    weight: 'Unidad 150g',
+    price: 2800,
+    desc: 'Muffin artesanal horneado a diario con puro cacao holandés, domo alto y húmedo coronado con abundante lluvia de chips de chocolate semi-amargo.',
+    image: 'assets/images/muffin_chocolate_artesanal.jpg'
+  },
+  {
+    id: 'muffin-arandano-silvestre',
+    name: 'Muffin de Arándanos Silvestres & Crumble',
+    category: 'muffins',
+    categoryName: 'Muffins Artesanales',
+    tag: 'Arándano Fresco & Crumble',
+    weight: 'Unidad 150g',
+    price: 2800,
+    desc: 'Masa esponjosa y húmeda con vainilla natural y generosos arándanos frescos que estallan al hornearse, terminado con un crocante streusel de mantequilla.',
+    image: 'assets/images/muffin_arandano_artesanal.jpg'
   }
 ];
 
