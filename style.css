@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PAN CERES • PANADERÍA ARTESANAL
+   PAN • PANADERÍA ARTESANAL
    Design System & Architecture
    Developed by Breborn.cl
    ========================================================================== */
@@ -221,7 +221,7 @@ button {
   transform: translateY(-1px);
 }
 
-/* Red Banner Ribbon Logo with Circular Ceres Badge  */
+/* Red Banner Ribbon Logo with Red Ribbon  */
 .sb-brand-ribbon-wrap {
   display: flex;
   align-items: center;
@@ -253,7 +253,7 @@ button {
 
 .sb-red-ribbon {
   position: relative;
-  width: 195px;
+  width: 170px;
   height: 48px;
   display: flex;
   align-items: center;
@@ -277,7 +277,8 @@ button {
   position: relative;
   z-index: 2;
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.65rem;
+  letter-spacing: 0.12em;
   font-weight: 900;
   color: #FFF;
   letter-spacing: 0.02em;
@@ -1008,7 +1009,8 @@ button {
 
 .product-name {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.65rem;
+  letter-spacing: 0.12em;
   font-weight: 800;
   color: var(--primary-crust);
   line-height: 1.25;
@@ -1034,7 +1036,8 @@ button {
 }
 
 .product-price {
-  font-size: 1.35rem;
+  font-size: 1.65rem;
+  letter-spacing: 0.12em;
   font-weight: 800;
   color: var(--primary-crust);
 }
@@ -1669,7 +1672,8 @@ button {
 
 .drawer-title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.65rem;
+  letter-spacing: 0.12em;
   font-weight: 900;
   color: var(--primary-crust);
   line-height: 1.1;

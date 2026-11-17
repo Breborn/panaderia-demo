@@ -1,4 +1,4 @@
-# Ceres Masa Madre • Panadería Artesanal, Bollería & Café
+# PAN • Panadería Artesanal, Bollería & Café
 
 > **Demostración Oficial desarrollada por [Breborn.cl](https://breborn.cl)**  
 > Showcase de alto impacto para panaderías artesanales, obradores de masa madre y cafeterías de especialidad en Chile.
@@ -14,7 +14,7 @@
   - Retiro en Local Andrés Bello (Lunes a Viernes 09:00 a 19:30, Sábados 09:30 a 14:30)
   - Delivery Local a Domicilio con campo de dirección
 - **Checkout Directo a WhatsApp sin Comisiones:** Generación automática de mensaje estructurado con desglose del pedido, cliente, sucursal y notas adicionales listo para confirmación instantánea.
-- **Pizarra de Horarios & Locales:** Diseño con estética pizarra rústica, combinación tipográfica imprenta + manuscrita, y enlace directo a Instagram `@panceres_cl`.
+- **Pizarra de Horarios & Locales:** Diseño con estética pizarra rústica, combinación tipográfica imprenta + manuscrita, y enlace directo a Instagram `@pan_masamadre`.
 - **Diseño Responsive & Mobile-First:** Barra de compra pegajosa en móviles, drawer deslizable con animaciones fluidas y navegación limpia.
 
 ---

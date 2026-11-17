@@ -1,10 +1,10 @@
 /**
- * PAN CERES • PANADERÍA Y BOLLERÍA DE MASA MADRE
+ * PAN • PANADERÍA Y BOLLERÍA DE MASA MADRE
  * Interactive Application Engine: Video Hero, Lead Hero Slider, Digital Menu & WhatsApp Checkout
  * Developed by Breborn.cl
  */
 
-// Teléfono oficial para pedidos WhatsApp (+56 9 9185 9762 - Pan Ceres)
+// Teléfono oficial para pedidos WhatsApp (+56 9 9185 9762 - PAN)
 const WHATSAPP_PHONE = '56991859762';
 const DELIVERY_FEE = 2500;
 
@@ -16,7 +16,7 @@ const AppState = {
   currentSlide: 0
 };
 
-// Catálogo Completo de Productos (Pan Ceres)
+// Catálogo Completo de Productos (PAN)
 const PRODUCTS = [
   // 1. Buns & Potato Rolls (Línea Hamburgueserías)
   {
@@ -64,7 +64,7 @@ const PRODUCTS = [
     image: 'assets/images/buns_hamburguesa.jpg'
   },
 
-  // 2. Hogazas de Masa Madre (Pan Ceres)
+  // 2. Hogazas de Masa Madre (PAN)
   {
     id: 'hogaza-campesina',
     name: 'Hogaza Tradicional Campesina (1kg)',
@@ -167,7 +167,7 @@ const PRODUCTS = [
     image: 'assets/images/hero_hogaza.jpg'
   },
 
-  // 4. Bollería Hojaldrada & Dulces Ceres
+  // 4. Bollería Hojaldrada & Dulces Artesanales
   {
     id: 'croissant-clasico',
     name: 'Croissant Francés 100% Mantequilla',
@@ -213,12 +213,12 @@ const PRODUCTS = [
     image: 'assets/images/cinnamon_babka.jpg'
   },
 
-  // 5. Pan de Pascua Ceres & Especiales de Temporada (Fotografías de Estudio Distintas)
+  // 5. Pan de Pascua & Especiales de Temporada (Fotografías de Estudio Distintas)
   {
-    id: 'pan-de-pascua-chocolate-ceres',
+    id: 'pan-de-pascua-chocolate',
     name: 'Pan de Pascua de Masa Madre • Chips de Chocolate',
     category: 'pascua',
-    categoryName: 'Especiales Ceres',
+    categoryName: 'Especiales de Temporada',
     tag: 'Edición Especial Chocolate',
     weight: 'Unidad 750g',
     price: 8900,
@@ -226,10 +226,10 @@ const PRODUCTS = [
     image: 'assets/images/pan_pascua_chocolate_artesanal.jpg'
   },
   {
-    id: 'pan-de-pascua-tradicional-ceres',
+    id: 'pan-de-pascua-tradicional',
     name: 'Pan de Pascua Artesanal • Nueces & Almendras',
     category: 'pascua',
-    categoryName: 'Especiales Ceres',
+    categoryName: 'Especiales de Temporada',
     tag: 'Clásico Navideño Tradicional',
     weight: 'Unidad 750g',
     price: 8900,
@@ -724,7 +724,7 @@ function sendWhatsAppOrder() {
   ).join('\n');
 
   const messageLines = [
-    '🥖 *PEDIDO ONLINE • PAN CERES | CERES MASA MADRE*',
+    '🥖 *PEDIDO ONLINE • PAN | PANADERÍA ARTESANAL*',
     '----------------------------------------',
     `👤 *Cliente:* ${name}`,
     `📦 *Modalidad:* ${modeText}`,
@@ -739,7 +739,7 @@ function sendWhatsAppOrder() {
     `✨ *TOTAL A PAGAR:* $${formatNumber(grandTotal)}`,
     notes ? `\n📝 *Notas:* ${notes}` : '',
     '----------------------------------------',
-    'Hola Pan Ceres! Acabo de armar este pedido en su web y me gustaría confirmarlo. ¿Me indican datos para transferencia o pago?'
+    'Hola PAN! Acabo de armar este pedido en su web y me gustaría confirmarlo. ¿Me indican datos para transferencia o pago?'
   ];
 
   const fullMessage = messageLines.filter(line => line !== '').join('\n');
@@ -795,7 +795,7 @@ function showToast(msg) {
  */
 function saveCartToStorage() {
   try {
-    localStorage.setItem('ceres_masa_madre_cart', JSON.stringify(AppState.cart));
+    localStorage.setItem('pan_masa_madre_cart', JSON.stringify(AppState.cart));
   } catch (e) {
     console.warn('LocalStorage error:', e);
   }
@@ -803,7 +803,7 @@ function saveCartToStorage() {
 
 function loadCartFromStorage() {
   try {
-    const saved = localStorage.getItem('ceres_masa_madre_cart');
+    const saved = localStorage.getItem('pan_masa_madre_cart');
     if (saved) {
       AppState.cart = JSON.parse(saved);
     }
