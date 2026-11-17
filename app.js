@@ -11,7 +11,7 @@ const DELIVERY_FEE = 2500;
 // Estado Global
 const AppState = {
   cart: [],
-  selectedMode: 'retiro-lautaro', // 'retiro-lautaro' | 'retiro-bello' | 'delivery'
+  selectedMode: 'retiro-barros-arana', // 'retiro-barros-arana' | 'retiro-esmeralda' | 'delivery'
   selectedFilter: 'all',
   currentSlide: 0
 };
@@ -675,16 +675,16 @@ function initModePills() {
 }
 
 function selectPickupBranch(branchName) {
-  if (branchName.includes('Lautaro')) {
-    AppState.selectedMode = 'retiro-lautaro';
-    const pill = document.getElementById('modeLautaroBtn');
+  if (branchName.includes('Barros Arana') || branchName.includes('Quilpué')) {
+    AppState.selectedMode = 'retiro-barros-arana';
+    const pill = document.getElementById('modeBarrosAranaBtn');
     if (pill) {
       document.querySelectorAll('.mode-pill').forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
     }
-  } else if (branchName.includes('Bello')) {
-    AppState.selectedMode = 'retiro-bello';
-    const pill = document.getElementById('modeBelloBtn');
+  } else if (branchName.includes('Esmeralda') || branchName.includes('Valparaíso')) {
+    AppState.selectedMode = 'retiro-esmeralda';
+    const pill = document.getElementById('modeEsmeraldaBtn');
     if (pill) {
       document.querySelectorAll('.mode-pill').forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
@@ -727,12 +727,12 @@ function sendWhatsAppOrder() {
 
   let modeText = '';
   let branchNote = '';
-  if (AppState.selectedMode === 'retiro-lautaro') {
-    modeText = 'Retiro en Local Lautaro (09:00 a 20:00 hrs)';
-    branchNote = '📍 Sucursal Lautaro: Lautaro 692, Quilpué';
-  } else if (AppState.selectedMode === 'retiro-bello') {
-    modeText = 'Retiro en Local Andrés Bello (09:00 a 20:00 hrs)';
-    branchNote = '📍 Sucursal Andrés Bello: Andrés Bello 623, Quilpué';
+  if (AppState.selectedMode === 'retiro-barros-arana') {
+    modeText = 'Retiro en Local Barros Arana (Quilpué)';
+    branchNote = '📍 Sucursal Quilpué: Barros Arana 699, Quilpué';
+  } else if (AppState.selectedMode === 'retiro-esmeralda') {
+    modeText = 'Retiro en Local Esmeralda (Valparaíso)';
+    branchNote = '📍 Sucursal Valparaíso: Esmeralda 125, Valparaíso';
   } else {
     modeText = `Delivery a Domicilio ($${formatNumber(DELIVERY_FEE)})`;
     branchNote = `🏠 Dirección: ${address}`;
