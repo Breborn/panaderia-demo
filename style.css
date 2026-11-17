@@ -8,9 +8,12 @@
   /* Theme Palette */
   --sb-cream-bg: #F7F1E6;
   --sb-cream-surface: #FBF7F0;
-  --sb-red: #E83828;
-  --sb-red-hover: #D02B1C;
-  --sb-red-dark: #B52215;
+  --sb-orange: #DE8642;
+  --sb-orange-hover: #C87431;
+  --sb-orange-dark: #A65B20;
+  --sb-red: var(--sb-orange);
+  --sb-red-hover: var(--sb-orange-hover);
+  --sb-red-dark: var(--sb-orange-dark);
   --sb-dark-bg: #140C07;
   --sb-dark-card: #20140D;
 
@@ -102,7 +105,7 @@ button {
   color: #E6D8C8;
   font-size: 0.85rem;
   padding: 0.6rem 1rem;
-  border-bottom: 1px solid rgba(232, 56, 40, 0.25);
+  border-bottom: 1px solid rgba(222, 134, 66, 0.25);
   position: relative;
   z-index: 1000;
 }
@@ -252,7 +255,7 @@ button {
   object-fit: cover;
   background: #FFF;
   border: 2px solid var(--sb-red);
-  box-shadow: 0 4px 12px rgba(232, 56, 40, 0.25);
+  box-shadow: 0 4px 12px rgba(222, 134, 66, 0.25);
   flex-shrink: 0;
 }
 
@@ -275,7 +278,7 @@ button {
   inset: 0;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 4px 10px rgba(232, 56, 40, 0.35));
+  filter: drop-shadow(0 4px 10px rgba(222, 134, 66, 0.35));
 }
 
 .sb-ribbon-text {
@@ -302,14 +305,14 @@ button {
   font-weight: 800;
   padding: 0.55rem 1.4rem;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 12px rgba(232, 56, 40, 0.3);
+  box-shadow: 0 4px 12px rgba(222, 134, 66, 0.3);
   transition: var(--transition);
 }
 
 .sb-btn-zona:hover {
   background: var(--sb-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(232, 56, 40, 0.45);
+  box-shadow: 0 6px 18px rgba(222, 134, 66, 0.45);
 }
 
 /* Cart Button */
@@ -318,7 +321,7 @@ button {
   align-items: center;
   gap: 0.6rem;
   background: #FFF;
-  border: 1.5px solid rgba(232, 56, 40, 0.35);
+  border: 1.5px solid rgba(222, 134, 66, 0.35);
   color: var(--primary-crust);
   padding: 0.5rem 1.1rem;
   border-radius: var(--radius-pill);
@@ -579,14 +582,14 @@ button {
   font-weight: 800;
   padding: 0.9rem 1.8rem;
   border-radius: var(--radius-pill);
-  box-shadow: 0 6px 20px rgba(232, 56, 40, 0.45);
+  box-shadow: 0 6px 20px rgba(222, 134, 66, 0.45);
   transition: var(--transition);
 }
 
 .btn-lead-primary:hover {
   background: var(--sb-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(232, 56, 40, 0.65);
+  box-shadow: 0 8px 26px rgba(222, 134, 66, 0.65);
 }
 
 .btn-lead-secondary {
@@ -712,7 +715,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.16em;
   color: var(--sb-red);
-  background: rgba(232, 56, 40, 0.1);
+  background: rgba(222, 134, 66, 0.1);
   padding: 0.35rem 0.9rem;
   border-radius: var(--radius-pill);
   margin-bottom: 1rem;
@@ -913,7 +916,7 @@ button {
   background: var(--sb-red);
   color: #FFF;
   border-color: var(--sb-red);
-  box-shadow: 0 4px 15px rgba(232, 56, 40, 0.3);
+  box-shadow: 0 4px 15px rgba(222, 134, 66, 0.3);
 }
 
 .tab-emoji {
@@ -943,7 +946,7 @@ button {
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(232, 56, 40, 0.25);
+  border-color: rgba(222, 134, 66, 0.25);
 }
 
 .product-media {
@@ -1051,9 +1054,9 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: rgba(232, 56, 40, 0.08);
+  background: rgba(222, 134, 66, 0.08);
   color: var(--sb-red);
-  border: 1px solid rgba(232, 56, 40, 0.3);
+  border: 1px solid rgba(222, 134, 66, 0.3);
   padding: 0.55rem 1.15rem;
   border-radius: var(--radius-pill);
   font-size: 0.85rem;
@@ -1095,11 +1098,11 @@ button {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  background: rgba(232, 56, 40, 0.25);
-  color: #FFA399;
+  background: rgba(222, 134, 66, 0.25);
+  color: #FFC999;
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(232, 56, 40, 0.4);
+  border: 1px solid rgba(222, 134, 66, 0.4);
   margin-bottom: 1rem;
 }
 
@@ -1428,12 +1431,12 @@ button {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  background: rgba(232, 56, 40, 0.25);
-  color: #FFA399;
+  background: rgba(222, 134, 66, 0.25);
+  color: #FFC999;
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-pill);
   margin-bottom: 1rem;
-  border: 1px solid rgba(232, 56, 40, 0.4);
+  border: 1px solid rgba(222, 134, 66, 0.4);
 }
 
 .breborn-card-banner h2 {
@@ -1473,14 +1476,14 @@ button {
   font-weight: 800;
   padding: 0.95rem 2rem;
   border-radius: var(--radius-pill);
-  box-shadow: 0 6px 20px rgba(232, 56, 40, 0.4);
+  box-shadow: 0 6px 20px rgba(222, 134, 66, 0.4);
   transition: var(--transition);
 }
 
 .btn-breborn-cta:hover {
   background: var(--sb-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(232, 56, 40, 0.6);
+  box-shadow: 0 8px 25px rgba(222, 134, 66, 0.6);
 }
 
 /* ==========================================================================
@@ -1914,7 +1917,7 @@ button {
 .form-input:focus {
   outline: none;
   border-color: var(--sb-red);
-  box-shadow: 0 0 0 2px rgba(232, 56, 40, 0.2);
+  box-shadow: 0 0 0 2px rgba(222, 134, 66, 0.2);
 }
 
 .cart-summary-box {
@@ -2027,7 +2030,7 @@ button {
   opacity: 0;
   pointer-events: none;
   transition: var(--transition);
-  border: 1px solid rgba(232, 56, 40, 0.3);
+  border: 1px solid rgba(222, 134, 66, 0.3);
 }
 
 .floating-wsp-button:hover .floating-wsp-tooltip {
@@ -2056,7 +2059,7 @@ button {
   width: 100%;
   background: #140C07;
   color: #FFF;
-  border: 1px solid rgba(232, 56, 40, 0.4);
+  border: 1px solid rgba(222, 134, 66, 0.4);
   border-radius: var(--radius-pill);
   padding: 0.75rem 1.25rem;
   display: flex;
